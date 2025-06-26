@@ -1,0 +1,10 @@
+# 1️⃣ 忽略任意路径下的 .pt 权重文件  
+*.pt          # 或者 **/*.pt，二者等价
+
+# 2️⃣ 忽略 runs/ 目录及其所有内容  
+runs/         # 末尾的斜杠表示整个目录
+
+# 忽略 eval_outputs 目录及其全部内容  
+eval_outputs/   # 改成 /eval_outputs/ 只匹配仓库根目录
+
+datasets/*.json
