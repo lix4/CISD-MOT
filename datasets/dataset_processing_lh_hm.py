@@ -17,6 +17,8 @@ import numpy as np
 from deep_sort_realtime.deepsort_tracker import DeepSort
 from collections import defaultdict
 from CustomYOLODataset import CustomYOLODataset, custom_collate
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
 
 # 获取当前文件的上上级目录（即项目根目录）
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -25,7 +27,7 @@ if project_root not in sys.path:
 # from utils import box_iou
 
 def load_model(nc:int=1, ckpt:Optional[Union[str, Path]] = None, device="cuda"):
-    model = DetectionModel(cfg='yolov8n.yaml', ch=3, nc=nc).to(device)
+    model = DetectionModel(cfg='yolo11s.yaml', ch=3, nc=nc).to(device)
     if ckpt:
         ckpt = Path(ckpt).expanduser()
         model.load_state_dict(torch.load(ckpt, map_location=device))
@@ -65,11 +67,13 @@ def match_preds_with_gt(pred_boxes, gt_boxes, gt_labels,
         for gi in range(Mg):
             if gt_used[gi]:
                 continue
+            # print(pred_boxes[pi], gt_boxes[gi])
             iou = box_iou_xyxy(pred_boxes[pi], gt_boxes[gi])
             if iou > best_iou:
                 best_iou, best_g = iou, gi
 
         # **只有同时满足两件事才写入标签**
+        # print(best_g, best_iou)
         if best_g != -1 and best_iou >= iou_thr:
             assigned[pi] = int(gt_labels[best_g])
             gt_used[best_g] = True
@@ -95,7 +99,7 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
     # loader = DataLoader(dataset , batch_size=1, shuffle=False)
     loader = DataLoader(dataset, batch_size=1, shuffle=False,  collate_fn=custom_collate, **kwargs)
 
-    model = load_model(nc=1, ckpt='../runs/MOT_detection_1/best_model.pt').cuda()
+    model = load_model(nc=1, ckpt='../runs/MOT_detection_yolo11s_MEB_ft/best_model.pt').cuda()
     model.eval()
     # tracker  = DeepSort(
     #     max_age=3,           # 连续丢 4 帧就结束轨迹
@@ -118,7 +122,7 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
         f.write('{\n')
 
         for idx, item in enumerate(tqdm(loader, desc="Extracting tracks", disable=True)):
-            # sample = item[0] if isinstance(item, list) else item
+            sample = item[0] if isinstance(item, list) else item
 
             video_id = item[0][0]
             
@@ -135,6 +139,7 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
                     trajectories = defaultdict(lambda: {
                         "boxes" : [None]*L,
                         "labels": [-1]*L,       # 如果你要存类别
+                        "confs" : [None]*L        # ←★
                     })
 
     
@@ -143,17 +148,19 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
                     for j, offset in enumerate(reversed(range(L))):
                         i_temp   = im_ind - offset * d
                         img_fp   = os.path.join(img_folder, f"{i_temp:05d}.jpg")
-
                         # --- (1) 读取原 BGR、准备网络输入 ---
                         orig_bgr = cv2.imread(img_fp)                      # H×W×3, BGR
+
+                        print(orig_bgr.shape)
                         inp_rgb  = cv2.resize(orig_bgr[..., ::-1], (224,224))
                         inp      = T.ToTensor()(inp_rgb).unsqueeze(0).cuda()
 
                         # exit()
                         # gt_labels = 
                         anno_pth = img_fp.replace('rgb-images', 'labels/av')[:-4] + '_g.txt'
+                        # print("anno_pth", anno_pth)
                         anno = np.loadtxt(anno_pth)
-                        # print(anno.shape)
+                        # print(anno)
                         if anno.shape[0] == 0:
                             gt_xyxy = torch.zeros((0, 5))
                             gt_labels = torch.zeros((0))
@@ -169,11 +176,10 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
                         # --- (2) YOLO 推理 + NMS ---
                         with torch.no_grad():
                             raw  = model(inp)
-                        preds = non_max_suppression(raw, 0.7, 0.7)[0]
+                        preds = non_max_suppression(raw, 0.3, 0.5)[0]
                         if preds is None or len(preds) == 0:
                             tracker.update_tracks(np.empty((0,4)), frame=orig_bgr)   # 喂空帧
                             continue
-                        
 
                         # --- (3) 坐标反缩放到 320×240 ---
                         scale   = np.array([320/224, 240/224, 320/224, 240/224])
@@ -192,6 +198,11 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
                                     for (x1,y1,x2,y2), conf, clas in zip(boxes_xyxy, confs, clses)]
                         
                         # print(raw_dets)
+                        #################### TODO: MEB Data only ####################
+                        # print(gt_xyxy.shape)
+                        gt_xyxy = gt_xyxy/2
+                        #################### TODO: MEB Data only ####################
+                        print("comparision box", boxes_xyxy, gt_xyxy)
 
                         # (可选) IoU 贴 GT 类别 → labels_inherited
                         labels_inherited = [-1] * len(boxes_xyxy)
@@ -202,7 +213,7 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
                         # print(labels_inherited)
                         # --- (4) DeepSORT 更新 ---
                         tracks = tracker.update_tracks(raw_dets, frame=orig_bgr)
-                        print("A", len(labels_inherited), len(tracks), len(boxes_xyxy))
+                        # print("A", len(labels_inherited), len(tracks), len(boxes_xyxy))
                         # for m, t in enumerate(tracks):
                         #     if t.is_confirmed() and t.time_since_update == 0:
                         #         # continue
@@ -234,8 +245,11 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
 
                             if best_det != -1:
                                 trajectories[tid]["labels"][j] = int(labels_inherited[best_det])
+                                trajectories[tid]["confs"][j]  = float(confs[best_det])  # ←★ 新增
                             else:
                                 trajectories[tid]["labels"][j] = -1  # 找不到匹配就填 -1
+                                trajectories[tid]["confs"][j]  = None
+                            # print(trajectories[tid]["confs"][j])
 
                     # clip 结束后
                     reset_deepsort(tracker)            # clip 结束后调用
@@ -247,29 +261,125 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
                     bboxes = torch.zeros((N, L, 4), dtype=torch.float32)
                     mask   = torch.zeros((N, L),     dtype=torch.bool)
                     labels = torch.full((N, L), -1,  dtype=torch.long)
+                    confs  = torch.full((N, L), -1., dtype=torch.float32)   # ←★ 新增
 
                     for n,(tid,traj) in enumerate(valid_tracks.items()):
+                        print("traj boxes", traj)
                         for k, box in enumerate(traj["boxes"]):
                             if box is not None and traj['labels'][k] != -1:
                                 bboxes[n, k] = torch.tensor(box, dtype=torch.float32)
                                 mask[n, k]   = True                 # 只有 box+合法标签 才置 True
                                 labels[n, k] = traj['labels'][k]
+                                if traj["confs"][k] is not None:            # ←★
+                                    confs[n, k] = traj["confs"][k]          # ←★
                     ##### DeepSORT tracker #####
-
+                    # print(mask)
             else:
-                bboxes = sample['bboxes'].squeeze(0).tolist()
-                labels = sample['labels'].squeeze(0).tolist()
-                mask = sample['mask'].squeeze(0).tolist()
+                # print(sample)
+                # bboxes = sample['bboxes'].squeeze(0).tolist()
+                # labels = sample['labels'].squeeze(0).tolist()
+                # mask = sample['mask'].squeeze(0).tolist()
+                
+                # ===== GT-based tracklet construction =====
+                
+                imgpath = video_id
+                im_split = imgpath.replace("\\", "/").split('/')
+                im_ind = int(im_split[-1][:5])        # 例如 01039.jpg -> 1039
+                img_folder = imgpath[:-10]            # remove /xxxxx.jpg
+
+                trajectories = defaultdict(lambda: {
+                    "boxes":  [None] * L,
+                    "labels": [-1]   * L,
+                    "confs":  [None] * L
+                })
+
+                for j, offset in enumerate(reversed(range(L))):
+                    i_temp = im_ind - offset * d
+                    img_fp = os.path.join(img_folder, f"{i_temp:05d}.jpg")
+                    orig_bgr = cv2.imread(img_fp)
+
+                    # --- load GT annotation ---
+                    anno_pth = img_fp.replace('rgb-images', 'labels/av')[:-4] + '_g.txt'
+                    if not os.path.exists(anno_pth):
+                        tracker.update_tracks([], frame=orig_bgr)
+                        continue
+
+                    anno = np.loadtxt(anno_pth)
+                    if anno.size == 0:
+                        tracker.update_tracks([], frame=orig_bgr)
+                        continue
+
+                    if anno.ndim == 1:
+                        anno = anno[None, :]
+
+                    gt_boxes = anno[:, 1:]   # xyxy
+                    gt_labels = anno[:, 0]
+
+                    # GT detections → DeepSORT
+                    raw_dets = [
+                        ([x1, y1, x2 - x1, y2 - y1], 1.0, int(lbl))
+                        for (x1, y1, x2, y2),lbl in zip(gt_boxes, gt_labels)
+                    ]
+
+                    tracks = tracker.update_tracks(raw_dets, frame=orig_bgr)
+                    confirmed_tracks = [t for t in tracks if t.is_confirmed() and t.time_since_update == 0]
+
+                    for t in confirmed_tracks:
+                        tid = t.track_id
+                        t_box = t.to_ltrb()
+                        trajectories[tid]["boxes"][j] = t_box
+
+                        # ---- frame-local GT label lookup (no threshold) ----
+                        best_iou, best_gt = 0.0, -1
+                        for gi, gt_box in enumerate(gt_boxes):
+                            iou = box_iou_xyxy(t_box, gt_box)
+                            if iou > best_iou:
+                                best_iou, best_gt = iou, gi
+
+                        if best_gt != -1:
+                            trajectories[tid]["labels"][j] = int(gt_labels[best_gt])
+                            trajectories[tid]["confs"][j]  = 1.0
+
+                reset_deepsort(tracker)
+
+                # ---- same post-processing as not gt ----
+                valid_tracks = {
+                    tid: traj for tid, traj in trajectories.items()
+                    if sum(b is not None for b in traj["boxes"]) >= 2
+                }
+
+                N = len(valid_tracks)
+                bboxes = torch.zeros((N, L, 4))
+                labels = torch.full((N, L), -1)
+                mask   = torch.zeros((N, L), dtype=torch.bool)
+                confs  = torch.ones((N, L))
+
+                for n, (tid, traj) in enumerate(valid_tracks.items()):
+                    for k, box in enumerate(traj["boxes"]):
+                        if box is not None and traj["labels"][k] != -1:
+                            bboxes[n, k] = torch.tensor(box)
+                            labels[n, k] = traj["labels"][k]
+                            mask[n, k]   = True
 
             ################# write into json #################
 
             video_dict = {}
             for i in range(len(bboxes)):
+                has_det_last = bool(mask[i, -1])
+                if labels[i][-1] == 1:
+                    # print()
+                    print(confs[mask].mean(), labels[i][-1])
+                last_conf = confs[mask].mean().item()
+                # print(mask)
+                # print("last_conf", last_conf)
+                # last_conf = float(confs[i, -1]) if has_det_last else 0.0   # ←★ 改动
+
                 track_id = f"track_{i}"
                 video_dict[track_id] = {
                     'boxes': [[float(x) for x in box] if m else None for box, m in zip(bboxes[i], mask[i])],
                     'labels': [int(lbl) if m else -1 for lbl, m in zip(labels[i], mask[i])],
-                    'mask': [bool(m) for m in mask[i]]
+                    'mask': [bool(m) for m in mask[i]],
+                    "yolo_conf": last_conf               # ←★ 新字段
                 }
 
             json_str = json.dumps({video_id: video_dict}, indent=2)
@@ -286,7 +396,6 @@ def generate_tracks_json(dataset, kwargs, gt=True, save_path='output_tracks_stre
 if __name__ == '__main__':
 
     basepath='/uu/sci.utah.edu/projects/smartair/Dataset'
-    trainlist='../meta-files/testlist_e2e_new_1.txt'
     dataset_use='car'
     init_width=224
     init_height=224
@@ -300,10 +409,21 @@ if __name__ == '__main__':
     #                    train=False, 
     #                    clip_duration=clip_duration)
     train_ds = CustomYOLODataset(
-        "../meta-files/trainlist_e2e_new_1.txt",
-        transform=torchvision.transforms.Compose([torchvision.transforms.ToTensor()])
+        # "../meta-files/MEB/DAMEBlist_test_e2e_new_1_copy.txt",
+        "../meta-files/testlist_e2e_new_2.txt",
+        # transform=torchvision.transforms.Compose([torchvision.transforms.ToTensor()])
+        transform = A.Compose(
+            [
+                A.ToFloat(max_value=255.0),
+                ToTensorV2()
+            ],
+            bbox_params=A.BboxParams(format='yolo', label_fields=[])  # 维持 bboxes，不进行任何转换
+        )
     )
     
 
     # generate_tracks_json(dataset, gt=False, save_path='train_tracks_yolo.json')
-    generate_tracks_json(train_ds, kwargs, gt=False, save_path='train_tracks_yolo_1.json')
+    # generate_tracks_json(train_ds, kwargs, gt=False, save_path='test_tracks_yolov11s_2.json')
+    generate_tracks_json(train_ds, kwargs, gt=True, save_path='test_tracks.json')
+    # generate_tracks_json(train_ds, kwargs, gt=False, save_path='valid_tracks_yolov11s_af_03_05.json')
+    # generate_tracks_json(train_ds, kwargs, gt=False, save_path='MEB_test_tracks_yolov11s_af_03_05.json')

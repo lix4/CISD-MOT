@@ -1,0 +1,545 @@
+import torch
+from losses.mask_ce import masked_cross_entropy_loss
+from losses.SupConLoss import SupConLoss
+from models.MOT_IVD_v1_7 import MOT_IVD_v1_7
+from models.MOT_IVD_v1_9 import MOT_IVD_v1_9
+# 注意这里加上 models. 前缀，因为文件在 models 目录下面
+from models.MOT_IVD_v1_9_ab_audio_bbox import MOT_IVD_v1_9 as MOT_IVD_v1_9_audio_bbox
+from models.MOT_IVD_v1_9_ab_audio_dis import MOT_IVD_v1_9 as MOT_IVD_v1_9_audio_dis
+from models.MOT_IVD_v1_9_ab_audio_bbox_dis import MOT_IVD_v1_9 as MOT_IVD_v1_9_audio_bbox_dis
+from models.MOT_IVD_v1_9_3c import MOT_IVD_v1_9_3c
+# from models.MOT_IVD_v1_9_audio_cl import MOT_IVD_v1_9
+import torch.nn.functional as F
+from sklearn.metrics import f1_score, average_precision_score
+from datasets.dataset_mot import listDataset, avivd_collate_fn
+import torchvision
+import os
+import torchvision.transforms as T
+from torchmetrics.classification import MulticlassAveragePrecision
+from torchmetrics.detection.mean_ap import MeanAveragePrecision
+# from torchmetrics.detection.precision_recall_curve import PrecisionRecallCurve
+import argparse
+from utils import *
+import matplotlib.pyplot as plt
+import itertools
+import numpy as np
+
+# 用 key 映射到不同文件里的 MOT_IVD_v1_9
+MODEL_REGISTRY = {
+    "audio_bbox_dis_JL": MOT_IVD_v1_9,
+    "audio_bbox": MOT_IVD_v1_9_audio_bbox,
+    "audio_bbox_dis": MOT_IVD_v1_9_audio_bbox_dis,
+    "audio_dis": MOT_IVD_v1_9_audio_dis,
+    "3c": MOT_IVD_v1_9_3c
+}
+
+def build_model(model_key, *args, **kwargs):
+    if model_key not in MODEL_REGISTRY:
+        raise ValueError(f"Unknown model key {model_key}, available {list(MODEL_REGISTRY.keys())}")
+    ModelCls = MODEL_REGISTRY[model_key]
+    return ModelCls(*args, **kwargs)
+
+def validate_one_epoch(model, dataloader, loss_n, device, num_classes=3, data_location = 'LDS', p=None):
+
+    model.eval()
+    all_preds, all_targets, all_masks = [], [], []
+    all_predictions, all_groundtruth = [], []
+
+    ap_metric = MulticlassAveragePrecision(num_classes=num_classes, average=None).to(device)  # 每类单独输出
+    # Initialize metric
+    det_cls_metric = MeanAveragePrecision(box_format='xyxy', iou_type='bbox', iou_thresholds=[0.5], class_metrics=True, average='macro')
+    # pr_metric = PrecisionRecallCurve(num_classes=3)
+    count_invalid = 0
+    losses = []
+    wrong_video_ids = []
+    with torch.no_grad():
+
+        for batch in dataloader:
+            _, bboxes, mask, audio, labels, video_ids, _, yolo_confs = batch
+            # print(bboxes.shape, yolo_confs.shape)
+            if bboxes.shape[0] == 0:
+                continue
+
+            assert len(video_ids) == bboxes.shape[0]
+            ####### MEB label remap #######
+            y = labels.clone()
+            y[labels == 0] = 1
+            y[labels == 1] = 2
+            y[labels == 2] = 0
+            labels = y
+            ####### MEB label remap #######
+            # clips = clips.to(device)
+            # clips = clips.permute(0, 2, 1, 3, 4)
+            bboxes = bboxes.to(device)
+            mask = mask.to(device)[:,-1:]
+            labels = labels.to(device)[:,-1:]
+
+            # 关键：测试也要用同样的通道置换
+            if p is not None:
+                audio = audio[:, p, :, :]
+            audio = audio.to(device)
+
+            # print(bboxes.shape, audio.shape)
+            logits, joint_emb_n = model(bboxes, audio)  # [BN, L, C]
+            ce_loss = masked_cross_entropy_loss(logits, labels, mask)
+            # print(ce_loss)
+            if joint_emb_n != None:
+                scl_loss = loss_n(joint_emb_n.unsqueeze(1), labels[:,-1])
+                loss = ce_loss + scl_loss
+            else:
+                scl_loss = None
+                loss = ce_loss
+            # print(ce_loss, scl_loss)    
+            # print(loss)
+            # print("#############")
+            losses.append(loss.cpu().item())
+            # print(mask, labels)
+            assert (mask==False).sum() == (labels==-1).sum()
+            count_invalid+=(labels==-1).sum()
+
+
+            # logits shape: BN x C
+            # print(logits.shape)
+            preds = torch.argmax(logits, dim=-1)  # [BN, L]
+            # print(preds.shape)
+            probs = torch.softmax(logits, dim=-1)        # 或 sigmoid
+            cls_scores, cls_ids = probs.max(dim=-1)       # single-label 情形
+            # print("B", yolo_confs.shape, cls_scores.shape)
+            # print("yolo_confs")
+
+            # final_scores = 0.4 * pct_conf + 0.6 * pct_prob
+            final_scores = yolo_confs * cls_scores.cpu()
+            # final_scores = (yolo_confs * cls_scores.cpu()) / 2          # 若模型也有 objectness
+            ground_truths = load_ground_truths(video_ids, data_location)
+            # print(bboxes.shape, preds.shape, labels.shape)
+            # print(video_ids, bboxes)
+            predictions = build_predictions(video_ids, bboxes, final_scores, cls_ids, yolo_confs, cls_scores.cpu())
+            # print(predictions)
+            # print(ground_truths)
+            # exit(0)
+            all_predictions.extend(predictions)
+            all_groundtruth.extend(ground_truths)
+
+            # if ((labels.squeeze(1) == 1) & (preds == 2)).any():
+            #     wrong_video_ids.append(video_ids[0])
+            #     print(video_ids[0])
+
+            all_preds.append(preds.cpu())
+            all_targets.append(labels.cpu())
+            all_masks.append(mask.cpu())
+
+    # print("validation loss ", np.mean(np.array(losses)))
+    # print(count_invalid)
+    ###################### TANet CLS ######################
+    preds = torch.cat(all_preds, dim=0).view(-1)
+    targets = torch.cat(all_targets, dim=0).view(-1)
+    masks = torch.cat(all_masks, dim=0).view(-1)
+    preds = preds[masks]
+    targets = targets[masks]
+
+    f1 = f1_score(targets, preds, average='macro')
+    # print(f"F1: {f1:.4f}")
+    one_hot_target = F.one_hot(targets, num_classes=num_classes)
+    one_hot_pred = F.one_hot(preds, num_classes=num_classes)
+    
+    ################# confusion matrix #################
+    num_classes = 3
+    pred_cls = one_hot_pred.argmax(dim=1)
+    tgt_cls  = one_hot_target.argmax(dim=1)
+
+    cm = torch.zeros((num_classes, num_classes), dtype=torch.long, device=pred_cls.device)
+    # 行: target, 列: pred
+    cm.index_put_((tgt_cls, pred_cls), torch.ones_like(tgt_cls, dtype=torch.long), accumulate=True)
+
+    print("Confusion Matrix (rows=target, cols=pred):")
+    print(cm.cpu().numpy())
+    ################# confusion matrix #################
+
+
+    per_class_ap = ap_metric(one_hot_pred.float().to(device), one_hot_target.argmax(dim=1).to(device))  # [num_classes]
+    mAP = 0.
+    for c, ap in enumerate(per_class_ap):
+        print(f"Class {c} AP: {ap:.4f}")
+        mAP+=ap
+    mAP = mAP / 3
+    ###################### TANet CLS ######################
+
+    ###################### overall detection ######################
+    # 1) 拼接到全局向量
+    # img_ids   = []
+    boxes_all = []; labels_all = []; conf_all = []; prob_all = []
+    offsets = []
+    start = 0
+
+    for p in all_predictions:
+        n = p['boxes'].shape[0]
+        if n == 0:
+            continue
+        # img_ids.append(torch.full((p['boxes'].shape[0],), p['image_id'], dtype=torch.long))
+        boxes_all.append(p['boxes'])
+        labels_all.append(p['labels'])
+        conf_all.append(p['yolo_confs'])
+        prob_all.append(p['cls_scores'])
+        offsets.append((p, start, start + n))
+        start += n
+
+    # img_ids = torch.cat(img_ids)
+    boxes   = torch.cat(boxes_all)
+    labels  = torch.cat(labels_all)
+    conf    = torch.cat(conf_all)    # ∈[0.3,1]（你之前conf_thres>=0.3）
+    prob    = torch.cat(prob_all)    # ∈[0,1]
+
+    # 2.1 词典式排序分数（先按prob，prob相近时再看conf）——强制重排
+    N = prob.numel()
+    rank_prob = prob.argsort().argsort().float()
+    rank_conf = conf.argsort().argsort().float()
+    new_score = rank_prob * (N + 1) + rank_conf
+    new_score = (new_score - new_score.min()) / (new_score.max() - new_score.min() + 1e-12)
+
+    # （或）2.2 线性缩放后乘（温和重排）
+    # conf2 = (conf - 0.30) / 0.70
+    # new_score = conf2 * prob
+
+    # 3) 按 offsets 把 new_score 写回各自的字典
+    for p, s, e in offsets:
+        p['scores'] = new_score[s:e]
+
+    print("########### det/cls mAP ###########")
+    det_cls_metric.update(all_predictions, all_groundtruth)
+    results = det_cls_metric.compute()
+    # Print all metrics
+    print("Evaluation Metrics:")
+    for name, value in results.items():
+        # Handle tensor values
+        if hasattr(value, 'item'):
+            try:
+                val = value.item()
+                if name == "map":
+                    det_map = val
+                print(f"{name}: {val:.4f}")
+                continue
+            except Exception:
+                pass
+        print(f"{name}: {value}")
+    det_cls_metric.reset()
+    print("########### det/cls mAP ###########")
+    ###################### overall detection ######################
+
+    return f1, mAP, det_map
+
+def train_one_step(model, batch, loss_n, optimizer, device, p):
+    """
+    One training step.
+    Inputs:
+        - batch: output of DataLoader + collate_fn
+        - model: your model (BBoxAudioClassifier)
+        - optimizer: torch optimizer
+    Returns:
+        - loss value (float)
+    """
+    # print(len(batch))
+    _, bboxes, mask, audio, labels, _, _, _ = batch  # [BN, L, 4], [BN, L], [BN, 128, 469], [BN, L]
+    # print(labels)
+
+    ####### MEB label remap #######
+    y = labels.clone()
+    y[labels == 0] = 1
+    y[labels == 1] = 2
+    y[labels == 2] = 0
+    labels = y
+    ####### MEB label remap #######
+    # print(bboxes.shape)
+    # clips = clips.to(device)
+    # clips = clips.permute(0, 2, 1, 3, 4)
+    bboxes = bboxes.to(device)
+    mask = mask.to(device)
+    audio = audio[:, p, :, :].to(device)
+    labels = labels.to(device)
+    # print(labels)
+    # print(bboxes, labels.unique())
+
+    model.train()
+    optimizer.zero_grad()
+
+    # print(labels[:,-1], labels.shape)
+    logits, joint_emb_n = model(bboxes, audio)  # [BN, L, C]
+    # print(labels[:,-1], mask[:,-1])
+
+    ce_loss = masked_cross_entropy_loss(logits, labels, mask)
+    if joint_emb_n is not None:
+        scl_loss = loss_n(joint_emb_n.unsqueeze(1), labels[:,-1])
+        loss = ce_loss + scl_loss
+    else:
+        scl_loss = None
+        loss = ce_loss
+    loss.backward()
+    optimizer.step()
+
+    return loss.item(), ce_loss.item(), scl_loss.item() if scl_loss is not None else 0.0
+
+def train_loop(model, train_loader, loss_n, optimizer, device, num_epochs, p, last_k=20):
+    print("Training with permutation", p)
+
+    last_k_ce = []
+
+    for epoch in range(1, num_epochs + 1):
+        total_ce = 0.0
+        total_steps = 0
+
+        for step, batch in enumerate(train_loader):
+            loss, ce_loss, scl_loss = train_one_step(model, batch, loss_n, optimizer, device, p)
+
+            total_ce += ce_loss
+            total_steps += 1
+
+            if step % 10 == 0:
+                print(
+                    f"Epoch {epoch} Step {step} | Loss: {loss:.4f}, ce_loss: {ce_loss:.4f}, scl_loss: {scl_loss:.4f}",
+                    flush=True
+                )
+
+        _, _, _ = validate_one_epoch(
+            model=model,
+            dataloader=test_loader,
+            loss_n=sup_con_l,
+            device=device,
+            data_location='MEB',
+            p=p
+        )
+
+        avg_ce = total_ce / max(total_steps, 1)
+
+        if epoch > num_epochs - last_k:
+            last_k_ce.append(avg_ce)
+
+        if epoch % 1 == 0:
+            cur_tail_mean = sum(last_k_ce) / max(len(last_k_ce), 1)
+            print(f"[Epoch {epoch}] avg_ce: {avg_ce:.6f} | tail_mean_ce: {cur_tail_mean:.6f}", flush=True)
+
+    score = sum(last_k_ce) / max(len(last_k_ce), 1)
+    return score
+
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Train / Validate MOTG_IVD classifier")
+    parser.add_argument(
+        "--model_key",
+        type=str,
+        default="audio_bbox_dis_JL",
+        choices=list(MODEL_REGISTRY.keys()),
+        help="Which MOT_IVD_v1_9 variant to use",
+    )
+    parser.add_argument("--pretrained", type=str, default=None,
+                        help="Path to .pth checkpoint for evaluation or finetune")
+    parser.add_argument("--val_only", action="store_true",
+                        help="Only run validation once and exit")
+    parser.add_argument("--job_name", type=str, required=True)
+    return parser.parse_args()
+
+if __name__ == "__main__":
+    args = parse_args()
+    checkpoint_dir = args.job_name
+    use_cuda = True
+    num_workers = 8
+    batch_size = 16
+    basepath =  '/uu/sci.utah.edu/projects/smartair/Dataset'
+    # trainlist = './meta-files/trainlist_e2e_new_1.txt' 
+    # testlist = './meta-files/validlist_e2e_new_1.txt' 
+    init_width, init_height = 224, 224
+    clip_duration = 16
+    sup_con_l = SupConLoss()
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+
+    kwargs = {'num_workers': num_workers, 'pin_memory': True, 'prefetch_factor': 2} if use_cuda else {}
+    num_epochs=100
+    # train_dataset=listDataset(basepath, trainlist, shape=(init_width, init_height),
+    #                    transform=torchvision.transforms.Compose([
+    #                        torchvision.transforms.ToTensor(),
+    #                    ]), 
+    #                    train=True, 
+    #                    clip_duration=clip_duration)
+    train_dataset = listDataset(
+        base_path='/uu/sci.utah.edu/projects/smartair/Dataset',
+        # txt_list='./meta-files/trainlist_e2e_new_1.txt',
+        # txt_list='./meta-files/MEB/DAMEBlist_train_e2e_new_1.txt',
+        txt_list='./meta-files/MEB/test_split_2/DAMEBlist_train_e2e_new_1.txt',
+        # json_path='./datasets/train_tracks_yolov11s_af_corrected_padded.json',
+        # json_path='./datasets/new_train.json',
+        # json_path = './datasets/MEB_train_tracks_yolov11s_af_03_05_corrected_padded.json',
+        json_path = './datasets/train_filtered.json',
+        # bbox_jitter = True,
+        load_frames=False,
+        transform=T.ToTensor()
+    )
+    valid_dataset = listDataset(
+        base_path='/uu/sci.utah.edu/projects/smartair/Dataset',
+        # txt_list='./meta-files/validlist_e2e_new_1.txt',
+        # txt_list='./meta-files/MEB/test_split_2/DAMEBlist_test_e2e_new_1_copy.txt',
+        txt_list='./meta-files/MEB/test_split_3/DAMEBlist_test_e2e_new_1_copy.txt',
+        # json_path='./datasets/valid_tracks_yolov11s_af_03_05_corrected_padded.json',
+        # json_path='./datasets/valid_tracks.json',
+        # json_path='./datasets/new_test.json',
+        # json_path = './datasets/MEB_test_tracks_yolov11s_af_03_05_corrected_padded.json',
+        json_path = './datasets/test_filtered.json',
+        load_frames=False,
+        transform=T.ToTensor()
+    )
+    # search 阶段：不打乱，保证每个 p 看到的数据顺序一致
+    train_loader_search = torch.utils.data.DataLoader(
+        train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
+        collate_fn=avivd_collate_fn,
+        **kwargs
+    )
+
+    # finetune 阶段：打乱，正常训练
+    train_loader_ft = torch.utils.data.DataLoader(
+        train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
+        collate_fn=avivd_collate_fn,
+        **kwargs
+    )
+
+    test_loader = torch.utils.data.DataLoader(
+        valid_dataset,
+        batch_size=1,
+        shuffle=False,
+        collate_fn=avivd_collate_fn,
+        **kwargs
+    )
+
+
+    # # ---------- 只验证 ----------
+    # if args.val_only:
+    #     f1, mAP = validate_one_epoch(model, valid_loader, sup_con_l, device, data_location = 'LDS')
+    #     print(f"[Validate-Only] F1: {f1:.4f} | mAP: {mAP:.4f}")
+    #     print("##################################################")
+    #     test_dataset = listDataset(
+    #         base_path='/uu/sci.utah.edu/projects/smartair/Dataset',
+    #         txt_list='./meta-files/testlist_e2e_new_2.txt',
+    #         # json_path='./datasets/test_tracks_yolov11s_2_corrected_padded.json',
+    #         json_path='./datasets/test_tracks_2_corrected_padded.json',
+    #         load_frames=False,
+    #         transform=T.ToTensor()
+    #     )
+    #     test_loader = torch.utils.data.DataLoader(
+    #         test_dataset,
+    #         batch_size=1,
+    #         shuffle=False,
+    #         collate_fn=avivd_collate_fn,
+    #         **kwargs
+    #     )
+    #     f1, mAP = validate_one_epoch(model, test_loader, sup_con_l, device, data_location = 'LDS')
+    #     print(f"[Test-Only] F1: {f1:.4f} | mAP: {mAP:.4f}")
+    #     exit(0)
+
+    ################ search best permutation ################
+    # best_p = None
+    # best_score = float('inf')
+
+    # for p in itertools.permutations([0,1,2,3,4,5]):
+    #     p = list(p)
+
+    #     model = build_model(args.model_key, num_classes=3).to(device)
+    #     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)
+
+    #     if args.pretrained is not None:
+    #         ckpt = torch.load(args.pretrained, map_location=device)
+    #         state_dict = ckpt if "model_state_dict" not in ckpt else ckpt["model_state_dict"]
+    #         model.load_state_dict(state_dict, strict=True)
+    #         print(f"=> Loaded weights from {args.pretrained}")
+
+    #     curr_score = train_loop(
+    #         model=model,
+    #         train_loader=train_loader_search,
+    #         loss_n=sup_con_l,
+    #         optimizer=optimizer,
+    #         device=device,
+    #         num_epochs=10,
+    #         p=p,
+    #         last_k=20
+    #     )
+
+    #     print(f"perm {p} | score(last20 CE) = {curr_score:.6f}", flush=True)
+
+    #     if curr_score < best_score:
+    #         best_score = curr_score
+    #         best_p = p
+
+    # print("Best permutation:", best_p, "Best score:", best_score)
+    ### Best permutation: [5, 0, 1, 3, 4, 2] Best score: 0.2366318417073748
+
+
+    # best_p = [2, 4, 3, 0, 1, 5]
+    ################ search best permutation ################
+
+    ################ finegrained finetune ################
+    model = build_model(args.model_key, num_classes=3).to(device)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)
+    # 重新加载 pretrained
+    if args.pretrained is not None:
+        ckpt = torch.load(args.pretrained, map_location=device)
+        state_dict = ckpt if "model_state_dict" not in ckpt else ckpt["model_state_dict"]
+        model.load_state_dict(state_dict, strict=True)
+
+    # 正式 finetune
+    # _ = train_loop(
+    #     model=model,
+    #     train_loader=train_loader_ft,
+    #     loss_n=sup_con_l,
+    #     optimizer=optimizer,
+    #     device=device,
+    #     num_epochs=num_epochs,
+    #     p=best_p,
+    #     last_k=20
+    # )
+    ################ finegrained finetune ################
+
+    ################ testing reorder ################
+    # max_map = float('-inf')
+    # best_p = None
+    # for p in itertools.permutations([0,1,2,3,4,5]):
+    #     p = list(p)
+    #     # print(p)
+    #     print("########### Testing with best permutation ###########")
+    #     f1, mAP = validate_one_epoch(
+    #         model=model,
+    #         dataloader=test_loader,
+    #         loss_n=sup_con_l,
+    #         device=device,
+    #         data_location='MEB',
+    #         p=p
+    #     )
+    #     print(f"[Test] best_p={p} | F1: {f1:.4f} | mAP: {mAP:.4f}")
+    #     if mAP > max_map:
+    #         max_map = mAP
+    #         best_p = p
+    # print(max_map, best_p)
+    ################ testing reorder ################
+
+    ################ testing reorder + spacing ################
+    max_map = float('-inf')
+    best_p = None
+    for p in itertools.permutations([0,1,2,3,4,5], 3):
+        p = list(p)
+        print(p)
+        print("########### Testing with best permutation ###########")
+        f1, mAP, det_mAP = validate_one_epoch(
+            model=model,
+            dataloader=test_loader,
+            loss_n=sup_con_l,
+            device=device,
+            data_location='MEB',
+            p=p
+        )
+        print(f"[Test] best_p={p} | F1: {f1:.4f} | mAP: {mAP:.4f}")
+        if mAP > max_map:
+            max_map = mAP
+            best_p = p
+    print(max_map, best_p)
+    ################ testing reorder + spacing ################

@@ -4,7 +4,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=40G
-#SBATCH --time=2-00:00:00
+#SBATCH --time=3-00:00:00
 
 # === 激活 Conda 环境 ===
 source ~/.bashrc        # 确保 conda 命令可用（如果你用 bash）

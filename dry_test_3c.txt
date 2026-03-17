@@ -1,0 +1,3361 @@
+[0, 1, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 98 67]
+ [ 0 26 17]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7584
+Class 2 AP: 0.1880
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4863
+map_50: 0.4863
+map_75: -1.0000
+map_small: 0.3378
+map_medium: 0.5991
+map_large: -1.0000
+mar_1: 0.5685
+mar_10: 0.6063
+mar_100: 0.6063
+mar_small: 0.4927
+mar_medium: 0.8828
+mar_large: -1.0000
+map_per_class: tensor([0.8281, 0.5518, 0.0790])
+mar_100_per_class: tensor([0.8333, 0.5904, 0.3953])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 1, 2] | F1: 0.6081 | mAP: 0.4863
+[0, 1, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[19  0  5]
+ [ 1 97 68]
+ [ 0  8 35]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.8360
+Class 2 AP: 0.2981
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5534
+map_50: 0.5534
+map_75: -1.0000
+map_small: 0.4686
+map_medium: 0.5674
+map_large: -1.0000
+mar_1: 0.7019
+mar_10: 0.7300
+mar_100: 0.7300
+mar_small: 0.6253
+mar_medium: 0.7188
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.5634, 0.3047])
+mar_100_per_class: tensor([0.7917, 0.5843, 0.8140])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 1, 3] | F1: 0.6810 | mAP: 0.5534
+[0, 1, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 81 84]
+ [ 0  7 36]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8139
+Class 2 AP: 0.2731
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5169
+map_50: 0.5169
+map_75: -1.0000
+map_small: 0.5240
+map_medium: 0.5322
+map_large: -1.0000
+mar_1: 0.6739
+mar_10: 0.7195
+mar_100: 0.7195
+mar_small: 0.6551
+mar_medium: 0.8385
+mar_large: -1.0000
+map_per_class: tensor([0.8298, 0.4774, 0.2434])
+mar_100_per_class: tensor([0.8333, 0.4880, 0.8372])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 1, 4] | F1: 0.6526 | mAP: 0.5169
+[0, 1, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  48 117]
+ [  0   1  42]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7897
+Class 2 AP: 0.2544
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5028
+map_50: 0.5028
+map_75: -1.0000
+map_small: 0.5777
+map_medium: 0.4005
+map_large: -1.0000
+mar_1: 0.6520
+mar_10: 0.6859
+mar_100: 0.6859
+mar_small: 0.6974
+mar_medium: 0.6328
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.2851, 0.4312])
+mar_100_per_class: tensor([0.7917, 0.2892, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 1, 5] | F1: 0.5720 | mAP: 0.5028
+[0, 2, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 92 73]
+ [ 0  3 40]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8543
+Class 2 AP: 0.3309
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5906
+map_50: 0.5906
+map_75: -1.0000
+map_small: 0.4024
+map_medium: 0.7118
+map_large: -1.0000
+mar_1: 0.7473
+mar_10: 0.7726
+mar_100: 0.7726
+mar_small: 0.5665
+mar_medium: 0.9036
+mar_large: -1.0000
+map_per_class: tensor([0.8298, 0.5536, 0.3884])
+mar_100_per_class: tensor([0.8333, 0.5542, 0.9302])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 2, 1] | F1: 0.6980 | mAP: 0.5906
+[0, 2, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 0 94 72]
+ [ 0  4 39]]
+Class 0 AP: 0.8505
+Class 1 AP: 0.8522
+Class 2 AP: 0.3248
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5990
+map_50: 0.5990
+map_75: -1.0000
+map_small: 0.4127
+map_medium: 0.5763
+map_large: -1.0000
+mar_1: 0.7689
+mar_10: 0.7689
+mar_100: 0.7689
+mar_small: 0.5833
+mar_medium: 0.5781
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.5599, 0.4055])
+mar_100_per_class: tensor([0.8333, 0.5663, 0.9070])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 2, 3] | F1: 0.7050 | mAP: 0.5990
+[0, 2, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1 116  49]
+ [  0   2  41]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.9015
+Class 2 AP: 0.4245
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6790
+map_50: 0.6790
+map_75: -1.0000
+map_small: 0.5460
+map_medium: 0.8640
+map_large: -1.0000
+mar_1: 0.7772
+mar_10: 0.8285
+mar_100: 0.8285
+mar_small: 0.6890
+mar_medium: 0.9323
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.6919, 0.5135])
+mar_100_per_class: tensor([0.8333, 0.6988, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 2, 4] | F1: 0.7681 | mAP: 0.6790
+[0, 2, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 74 91]
+ [ 0  0 43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8406
+Class 2 AP: 0.3116
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6209
+map_50: 0.6209
+map_75: -1.0000
+map_small: 0.4818
+map_medium: 0.6145
+map_large: -1.0000
+mar_1: 0.7479
+mar_10: 0.7597
+mar_100: 0.7597
+mar_small: 0.6096
+mar_medium: 0.8516
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.4455, 0.5855])
+mar_100_per_class: tensor([0.8333, 0.4458, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 2, 5] | F1: 0.6602 | mAP: 0.6209
+[0, 3, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  38 127]
+ [  0   2  41]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7668
+Class 2 AP: 0.2346
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4266
+map_50: 0.4266
+map_75: -1.0000
+map_small: 0.3978
+map_medium: 0.4635
+map_large: -1.0000
+mar_1: 0.6463
+mar_10: 0.6580
+mar_100: 0.6580
+mar_small: 0.5629
+mar_medium: 0.7604
+mar_large: -1.0000
+map_per_class: tensor([0.7883, 0.2230, 0.2684])
+mar_100_per_class: tensor([0.7917, 0.2289, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 3, 1] | F1: 0.5374 | mAP: 0.4266
+[0, 3, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  20 145]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7471
+Class 2 AP: 0.2240
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4269
+map_50: 0.4269
+map_75: -1.0000
+map_small: 0.4104
+map_medium: 0.4550
+map_large: -1.0000
+mar_1: 0.6280
+mar_10: 0.6513
+mar_100: 0.6513
+mar_small: 0.5833
+mar_medium: 0.7188
+mar_large: -1.0000
+map_per_class: tensor([0.8201, 0.1287, 0.3317])
+mar_100_per_class: tensor([0.8333, 0.1205, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 3, 2] | F1: 0.4900 | mAP: 0.4269
+[0, 3, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  46 119]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7921
+Class 2 AP: 0.2590
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5113
+map_50: 0.5113
+map_75: -1.0000
+map_small: 0.4729
+map_medium: 0.6095
+map_large: -1.0000
+mar_1: 0.6857
+mar_10: 0.7035
+mar_100: 0.7035
+mar_small: 0.6272
+mar_medium: 0.7734
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.2772, 0.4249])
+mar_100_per_class: tensor([0.8333, 0.2771, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 3, 4] | F1: 0.5781 | mAP: 0.5113
+[0, 3, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  27 138]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7592
+Class 2 AP: 0.2324
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5166
+map_50: 0.5166
+map_75: -1.0000
+map_small: 0.4887
+map_medium: 0.4342
+map_large: -1.0000
+mar_1: 0.6495
+mar_10: 0.6653
+mar_100: 0.6653
+mar_small: 0.6272
+mar_medium: 0.7240
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.1655, 0.5526])
+mar_100_per_class: tensor([0.8333, 0.1627, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 3, 5] | F1: 0.5153 | mAP: 0.5166
+[0, 4, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  64 101]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8233
+Class 2 AP: 0.2905
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5469
+map_50: 0.5469
+map_75: -1.0000
+map_small: 0.5871
+map_medium: 0.5499
+map_large: -1.0000
+mar_1: 0.7161
+mar_10: 0.7396
+mar_100: 0.7396
+mar_small: 0.7149
+mar_medium: 0.7943
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.3845, 0.4247])
+mar_100_per_class: tensor([0.8333, 0.3855, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 4, 1] | F1: 0.6319 | mAP: 0.5469
+[0, 4, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  63 102]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.8216
+Class 2 AP: 0.2867
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5360
+map_50: 0.5360
+map_75: -1.0000
+map_small: 0.5363
+map_medium: 0.5506
+map_large: -1.0000
+mar_1: 0.7079
+mar_10: 0.7237
+mar_100: 0.7237
+mar_small: 0.6711
+mar_medium: 0.7630
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.3727, 0.4434])
+mar_100_per_class: tensor([0.7917, 0.3795, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 4, 2] | F1: 0.6198 | mAP: 0.5360
+[0, 4, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[19  0  5]
+ [ 1 77 88]
+ [ 0  1 42]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.8399
+Class 2 AP: 0.3082
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5489
+map_50: 0.5489
+map_75: -1.0000
+map_small: 0.4823
+map_medium: 0.5206
+map_large: -1.0000
+mar_1: 0.7206
+mar_10: 0.7441
+mar_100: 0.7441
+mar_small: 0.6327
+mar_medium: 0.7630
+mar_large: -1.0000
+map_per_class: tensor([0.7836, 0.4602, 0.4028])
+mar_100_per_class: tensor([0.7917, 0.4639, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 4, 3] | F1: 0.6556 | mAP: 0.5489
+[0, 4, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 67 98]
+ [ 0  0 43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8285
+Class 2 AP: 0.2966
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5932
+map_50: 0.5932
+map_75: -1.0000
+map_small: 0.5843
+map_medium: 0.4923
+map_large: -1.0000
+mar_1: 0.7218
+mar_10: 0.7456
+mar_100: 0.7456
+mar_small: 0.7061
+mar_medium: 0.8047
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.4043, 0.5437])
+mar_100_per_class: tensor([0.8333, 0.4036, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 4, 5] | F1: 0.6405 | mAP: 0.5932
+[0, 5, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1  41 124]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7835
+Class 2 AP: 0.2529
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5667
+map_50: 0.5667
+map_75: -1.0000
+map_small: 0.5585
+map_medium: 0.5211
+map_large: -1.0000
+mar_1: 0.6915
+mar_10: 0.7073
+mar_100: 0.7073
+mar_small: 0.6831
+mar_medium: 0.7500
+mar_large: -1.0000
+map_per_class: tensor([0.8626, 0.2475, 0.5901])
+mar_100_per_class: tensor([0.8750, 0.2470, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 5, 1] | F1: 0.5710 | mAP: 0.5667
+[0, 5, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  45 120]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7904
+Class 2 AP: 0.2575
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5434
+map_50: 0.5434
+map_75: -1.0000
+map_small: 0.5454
+map_medium: 0.7066
+map_large: -1.0000
+mar_1: 0.6739
+mar_10: 0.7015
+mar_100: 0.7015
+mar_small: 0.6711
+mar_medium: 0.7578
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.2772, 0.5212])
+mar_100_per_class: tensor([0.8333, 0.2711, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 5, 2] | F1: 0.5750 | mAP: 0.5434
+[0, 5, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 84 81]
+ [ 0  0 43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8580
+Class 2 AP: 0.3359
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.7002
+map_50: 0.7002
+map_75: -1.0000
+map_small: 0.6072
+map_medium: 0.5701
+map_large: -1.0000
+mar_1: 0.7520
+mar_10: 0.7798
+mar_100: 0.7798
+mar_small: 0.6711
+mar_medium: 0.8594
+mar_large: -1.0000
+map_per_class: tensor([0.8256, 0.5050, 0.7702])
+mar_100_per_class: tensor([0.8333, 0.5060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 5, 3] | F1: 0.6879 | mAP: 0.7002
+[0, 5, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  31 134]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7661
+Class 2 AP: 0.2376
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5672
+map_50: 0.5672
+map_75: -1.0000
+map_small: 0.5911
+map_medium: 0.6887
+map_large: -1.0000
+mar_1: 0.6636
+mar_10: 0.6734
+mar_100: 0.6734
+mar_small: 0.6974
+mar_medium: 0.7135
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.1881, 0.6816])
+mar_100_per_class: tensor([0.8333, 0.1867, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[0, 5, 4] | F1: 0.5292 | mAP: 0.5672
+[1, 0, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  2  28 136]
+ [  0   0  43]]
+Class 0 AP: 0.7747
+Class 1 AP: 0.7609
+Class 2 AP: 0.2350
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5038
+map_50: 0.5038
+map_75: -1.0000
+map_small: 0.4250
+map_medium: 0.4740
+map_large: -1.0000
+mar_1: 0.6596
+mar_10: 0.6673
+mar_100: 0.6673
+mar_small: 0.5833
+mar_medium: 0.7396
+mar_large: -1.0000
+map_per_class: tensor([0.8281, 0.1659, 0.5175])
+mar_100_per_class: tensor([0.8333, 0.1687, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 0, 2] | F1: 0.5129 | mAP: 0.5038
+[1, 0, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[19  0  5]
+ [ 1 74 91]
+ [ 0  1 42]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.8347
+Class 2 AP: 0.3016
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6250
+map_50: 0.6250
+map_75: -1.0000
+map_small: 0.4533
+map_medium: 0.5396
+map_large: -1.0000
+mar_1: 0.7381
+mar_10: 0.7381
+mar_100: 0.7381
+mar_small: 0.5625
+mar_medium: 0.7760
+mar_large: -1.0000
+map_per_class: tensor([0.7901, 0.4450, 0.6400])
+mar_100_per_class: tensor([0.7917, 0.4458, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 0, 3] | F1: 0.6473 | mAP: 0.6250
+[1, 0, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[18  0  6]
+ [ 1 76 89]
+ [ 0  0 43]]
+Class 0 AP: 0.7363
+Class 1 AP: 0.8441
+Class 2 AP: 0.3116
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6206
+map_50: 0.6206
+map_75: -1.0000
+map_small: 0.4334
+map_medium: 0.6112
+map_large: -1.0000
+mar_1: 0.7282
+mar_10: 0.7359
+mar_100: 0.7359
+mar_small: 0.5417
+mar_medium: 0.8646
+mar_large: -1.0000
+map_per_class: tensor([0.7525, 0.4547, 0.6546])
+mar_100_per_class: tensor([0.7500, 0.4578, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 0, 4] | F1: 0.6468 | mAP: 0.6206
+[1, 0, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 67 98]
+ [ 0  0 43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8285
+Class 2 AP: 0.2966
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6791
+map_50: 0.6791
+map_75: -1.0000
+map_small: 0.5288
+map_medium: 0.6716
+map_large: -1.0000
+mar_1: 0.7379
+mar_10: 0.7456
+mar_100: 0.7456
+mar_small: 0.5833
+mar_medium: 0.8411
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.4055, 0.8001])
+mar_100_per_class: tensor([0.8333, 0.4036, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 0, 5] | F1: 0.6405 | mAP: 0.6791
+[1, 2, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  2   2 162]
+ [  0   3  40]]
+Class 0 AP: 0.7747
+Class 1 AP: 0.7087
+Class 2 AP: 0.1935
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4098
+map_50: 0.4098
+map_75: -1.0000
+map_small: 0.4349
+map_medium: 0.3320
+map_large: -1.0000
+mar_1: 0.4833
+mar_10: 0.5919
+mar_100: 0.5919
+mar_small: 0.5833
+mar_medium: 0.4219
+mar_large: -1.0000
+map_per_class: tensor([0.8281, 0.0066, 0.3947])
+mar_100_per_class: tensor([0.8333, 0.0120, 0.9302])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 2, 0] | F1: 0.4047 | mAP: 0.4098
+[1, 2, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  60 105]
+ [  0   2  41]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.8047
+Class 2 AP: 0.2675
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5570
+map_50: 0.5570
+map_75: -1.0000
+map_small: 0.4326
+map_medium: 0.4920
+map_large: -1.0000
+mar_1: 0.7022
+mar_10: 0.7022
+mar_100: 0.7022
+mar_small: 0.5625
+mar_medium: 0.6562
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.3572, 0.5216])
+mar_100_per_class: tensor([0.7917, 0.3614, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 2, 3] | F1: 0.6042 | mAP: 0.5570
+[1, 2, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1  39 126]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7800
+Class 2 AP: 0.2500
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5286
+map_50: 0.5286
+map_75: -1.0000
+map_small: 0.4370
+map_medium: 0.4581
+map_large: -1.0000
+mar_1: 0.6956
+mar_10: 0.7033
+mar_100: 0.7033
+mar_small: 0.6042
+mar_medium: 0.7682
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.2356, 0.4790])
+mar_100_per_class: tensor([0.8750, 0.2349, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 2, 4] | F1: 0.5645 | mAP: 0.5286
+[1, 2, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  41 124]
+ [  0   3  40]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7666
+Class 2 AP: 0.2344
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5067
+map_50: 0.5067
+map_75: -1.0000
+map_small: 0.4640
+map_medium: 0.4296
+map_large: -1.0000
+mar_1: 0.6642
+mar_10: 0.6702
+mar_100: 0.6702
+mar_small: 0.6096
+mar_medium: 0.5156
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.2365, 0.4519])
+mar_100_per_class: tensor([0.8333, 0.2470, 0.9302])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 2, 5] | F1: 0.5528 | mAP: 0.5067
+[1, 3, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1   0 165]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7124
+Class 2 AP: 0.2019
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4441
+map_50: 0.4441
+map_75: -1.0000
+map_small: 0.4455
+map_medium: 0.3478
+map_large: -1.0000
+mar_1: 0.5275
+mar_10: 0.5972
+mar_100: 0.5972
+mar_small: 0.5625
+mar_medium: 0.6667
+mar_large: -1.0000
+map_per_class: tensor([0.7760, 0.0000, 0.5561])
+mar_100_per_class: tensor([0.7917, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 3, 0] | F1: 0.3999 | mAP: 0.4441
+[1, 3, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1   3 162]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7176
+Class 2 AP: 0.2057
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4990
+map_50: 0.4990
+map_75: -1.0000
+map_small: 0.4940
+map_medium: 0.3604
+map_large: -1.0000
+mar_1: 0.6094
+mar_10: 0.6171
+mar_100: 0.6171
+mar_small: 0.5833
+mar_medium: 0.6745
+mar_large: -1.0000
+map_per_class: tensor([0.8245, 0.0198, 0.6528])
+mar_100_per_class: tensor([0.8333, 0.0181, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 3, 2] | F1: 0.4219 | mAP: 0.4990
+[1, 3, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1   6 159]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7228
+Class 2 AP: 0.2077
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4414
+map_50: 0.4414
+map_75: -1.0000
+map_small: 0.4336
+map_medium: 0.3629
+map_large: -1.0000
+mar_1: 0.6015
+mar_10: 0.6093
+mar_100: 0.6093
+mar_small: 0.5625
+mar_medium: 0.6823
+mar_large: -1.0000
+map_per_class: tensor([0.7775, 0.0382, 0.5086])
+mar_100_per_class: tensor([0.7917, 0.0361, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 3, 4] | F1: 0.4258 | mAP: 0.4414
+[1, 3, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1   8 157]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7263
+Class 2 AP: 0.2098
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4423
+map_50: 0.4423
+map_75: -1.0000
+map_small: 0.4245
+map_medium: 0.3678
+map_large: -1.0000
+mar_1: 0.6055
+mar_10: 0.6133
+mar_100: 0.6133
+mar_small: 0.5625
+mar_medium: 0.6875
+mar_large: -1.0000
+map_per_class: tensor([0.7841, 0.0495, 0.4934])
+mar_100_per_class: tensor([0.7917, 0.0482, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 3, 5] | F1: 0.4341 | mAP: 0.4423
+[1, 4, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  0  14 152]
+ [  0   1  42]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.7311
+Class 2 AP: 0.2094
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4089
+map_50: 0.4089
+map_75: -1.0000
+map_small: 0.4679
+map_medium: 0.3333
+map_large: -1.0000
+mar_1: 0.5339
+mar_10: 0.6037
+mar_100: 0.6037
+mar_small: 0.5625
+mar_medium: 0.5781
+mar_large: -1.0000
+map_per_class: tensor([0.7525, 0.0865, 0.3877])
+mar_100_per_class: tensor([0.7500, 0.0843, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 4, 0] | F1: 0.4525 | mAP: 0.4089
+[1, 4, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  17 148]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7419
+Class 2 AP: 0.2194
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4936
+map_50: 0.4936
+map_75: -1.0000
+map_small: 0.4956
+map_medium: 0.3485
+map_large: -1.0000
+mar_1: 0.6236
+mar_10: 0.6314
+mar_100: 0.6314
+mar_small: 0.5833
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.1051, 0.5836])
+mar_100_per_class: tensor([0.7917, 0.1024, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 4, 2] | F1: 0.4698 | mAP: 0.4936
+[1, 4, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 16   0   8]
+ [  1  24 141]
+ [  0   2  41]]
+Class 0 AP: 0.6618
+Class 1 AP: 0.7429
+Class 2 AP: 0.2143
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4122
+map_50: 0.4122
+map_75: -1.0000
+map_small: 0.4233
+map_medium: 0.3528
+map_large: -1.0000
+mar_1: 0.5552
+mar_10: 0.5882
+mar_100: 0.5882
+mar_small: 0.5296
+mar_medium: 0.5182
+mar_large: -1.0000
+map_per_class: tensor([0.6634, 0.1453, 0.4280])
+mar_100_per_class: tensor([0.6667, 0.1446, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 4, 3] | F1: 0.4608 | mAP: 0.4122
+[1, 4, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  21 144]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7488
+Class 2 AP: 0.2251
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4193
+map_50: 0.4193
+map_75: -1.0000
+map_small: 0.4814
+map_medium: 0.3968
+map_large: -1.0000
+mar_1: 0.6300
+mar_10: 0.6533
+mar_100: 0.6533
+mar_small: 0.5833
+mar_medium: 0.7214
+mar_large: -1.0000
+map_per_class: tensor([0.8281, 0.1287, 0.3012])
+mar_100_per_class: tensor([0.8333, 0.1265, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 4, 5] | F1: 0.4937 | mAP: 0.4193
+[1, 5, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   0 165]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7124
+Class 2 AP: 0.2038
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5288
+map_50: 0.5288
+map_75: -1.0000
+map_small: 0.5406
+map_medium: 0.3436
+map_large: -1.0000
+mar_1: 0.6172
+mar_10: 0.6250
+mar_100: 0.6250
+mar_small: 0.6042
+mar_medium: 0.6667
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.0000, 0.7151])
+mar_100_per_class: tensor([0.8750, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 5, 0] | F1: 0.4172 | mAP: 0.5288
+[1, 5, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   3 162]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7176
+Class 2 AP: 0.2067
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5550
+map_50: 0.5550
+map_75: -1.0000
+map_small: 0.5657
+map_medium: 0.3568
+map_large: -1.0000
+mar_1: 0.6233
+mar_10: 0.6310
+mar_100: 0.6310
+mar_small: 0.6042
+mar_medium: 0.6745
+mar_large: -1.0000
+map_per_class: tensor([0.8678, 0.0198, 0.7774])
+mar_100_per_class: tensor([0.8750, 0.0181, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 5, 2] | F1: 0.4304 | mAP: 0.5550
+[1, 5, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  2  25 139]
+ [  0   0  43]]
+Class 0 AP: 0.7747
+Class 1 AP: 0.7558
+Class 2 AP: 0.2312
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6202
+map_50: 0.6202
+map_75: -1.0000
+map_small: 0.6230
+map_medium: 0.3964
+map_large: -1.0000
+mar_1: 0.6415
+mar_10: 0.6613
+mar_100: 0.6613
+mar_small: 0.6360
+mar_medium: 0.7161
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.1569, 0.8721])
+mar_100_per_class: tensor([0.8333, 0.1506, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 5, 3] | F1: 0.5023 | mAP: 0.6202
+[1, 5, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   3 162]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7176
+Class 2 AP: 0.2067
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5242
+map_50: 0.5242
+map_75: -1.0000
+map_small: 0.5337
+map_medium: 0.3564
+map_large: -1.0000
+mar_1: 0.6233
+mar_10: 0.6310
+mar_100: 0.6310
+mar_small: 0.6042
+mar_medium: 0.6745
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.0198, 0.6816])
+mar_100_per_class: tensor([0.8750, 0.0181, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[1, 5, 4] | F1: 0.4304 | mAP: 0.5242
+[2, 0, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  0 114  52]
+ [  0   0  43]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.9099
+Class 2 AP: 0.4257
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6697
+map_50: 0.6697
+map_75: -1.0000
+map_small: 0.4126
+map_medium: 0.8021
+map_large: -1.0000
+mar_1: 0.8025
+mar_10: 0.8122
+mar_100: 0.8122
+mar_small: 0.5504
+mar_medium: 0.9609
+mar_large: -1.0000
+map_per_class: tensor([0.7457, 0.6832, 0.5803])
+mar_100_per_class: tensor([0.7500, 0.6867, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 0, 1] | F1: 0.7562 | mAP: 0.6697
+[2, 0, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[16  0  8]
+ [ 0 93 73]
+ [ 0  0 43]]
+Class 0 AP: 0.7010
+Class 1 AP: 0.8735
+Class 2 AP: 0.3468
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5913
+map_50: 0.5913
+map_75: -1.0000
+map_small: 0.3558
+map_medium: 0.6490
+map_large: -1.0000
+mar_1: 0.7346
+mar_10: 0.7423
+mar_100: 0.7423
+mar_small: 0.5000
+mar_medium: 0.9089
+mar_large: -1.0000
+map_per_class: tensor([0.6587, 0.5641, 0.5510])
+mar_100_per_class: tensor([0.6667, 0.5602, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 0, 3] | F1: 0.6777 | mAP: 0.5913
+[2, 0, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  0 109  57]
+ [  0   0  43]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.9013
+Class 2 AP: 0.4057
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6437
+map_50: 0.6437
+map_75: -1.0000
+map_small: 0.3804
+map_medium: 0.9230
+map_large: -1.0000
+mar_1: 0.7945
+mar_10: 0.8022
+mar_100: 0.8022
+mar_small: 0.5417
+mar_medium: 0.9505
+mar_large: -1.0000
+map_per_class: tensor([0.7478, 0.6516, 0.5317])
+mar_100_per_class: tensor([0.7500, 0.6566, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 0, 4] | F1: 0.7424 | mAP: 0.6437
+[2, 0, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 90 75]
+ [ 0  0 43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8683
+Class 2 AP: 0.3525
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6874
+map_50: 0.6874
+map_75: -1.0000
+map_small: 0.4847
+map_medium: 0.7459
+map_large: -1.0000
+mar_1: 0.7841
+mar_10: 0.7918
+mar_100: 0.7918
+mar_small: 0.5833
+mar_medium: 0.9010
+mar_large: -1.0000
+map_per_class: tensor([0.8298, 0.5442, 0.6883])
+mar_100_per_class: tensor([0.8333, 0.5422, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 0, 5] | F1: 0.7044 | mAP: 0.6874
+[2, 1, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  0   8 158]
+ [  0   1  42]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.7209
+Class 2 AP: 0.2034
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4085
+map_50: 0.4085
+map_75: -1.0000
+map_small: 0.4352
+map_medium: 0.3171
+map_large: -1.0000
+mar_1: 0.4676
+mar_10: 0.5916
+mar_100: 0.5916
+mar_small: 0.5625
+mar_medium: 0.5625
+mar_large: -1.0000
+map_per_class: tensor([0.7525, 0.0396, 0.4335])
+mar_100_per_class: tensor([0.7500, 0.0482, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 1, 0] | F1: 0.4286 | mAP: 0.4085
+[2, 1, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  15 150]
+ [  0   2  41]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7278
+Class 2 AP: 0.2080
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5084
+map_50: 0.5084
+map_75: -1.0000
+map_small: 0.4881
+map_medium: 0.3746
+map_large: -1.0000
+mar_1: 0.5886
+mar_10: 0.6118
+mar_100: 0.6118
+mar_small: 0.5625
+mar_medium: 0.5391
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.0925, 0.6405])
+mar_100_per_class: tensor([0.7917, 0.0904, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 1, 3] | F1: 0.4569 | mAP: 0.5084
+[2, 1, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  14 151]
+ [  0   1  42]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7311
+Class 2 AP: 0.2125
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5302
+map_50: 0.5302
+map_75: -1.0000
+map_small: 0.5164
+map_medium: 0.3713
+map_large: -1.0000
+mar_1: 0.6005
+mar_10: 0.6315
+mar_100: 0.6315
+mar_small: 0.5833
+mar_medium: 0.6198
+mar_large: -1.0000
+map_per_class: tensor([0.8281, 0.0841, 0.6784])
+mar_100_per_class: tensor([0.8333, 0.0843, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 1, 4] | F1: 0.4645 | mAP: 0.5302
+[2, 1, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  16 149]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7402
+Class 2 AP: 0.2183
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5545
+map_50: 0.5545
+map_75: -1.0000
+map_small: 0.5787
+map_medium: 0.3415
+map_large: -1.0000
+mar_1: 0.5808
+mar_10: 0.6294
+mar_100: 0.6294
+mar_small: 0.5921
+mar_medium: 0.6641
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.0973, 0.7740])
+mar_100_per_class: tensor([0.7917, 0.0964, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 1, 5] | F1: 0.4659 | mAP: 0.5545
+[2, 3, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 15   0   9]
+ [  0   0 166]
+ [  0   0  43]]
+Class 0 AP: 0.6636
+Class 1 AP: 0.7124
+Class 2 AP: 0.1972
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.3579
+map_50: 0.3579
+map_75: -1.0000
+map_small: 0.3151
+map_medium: 0.3517
+map_large: -1.0000
+mar_1: 0.5107
+mar_10: 0.5417
+mar_100: 0.5417
+mar_small: 0.4792
+mar_medium: 0.6667
+mar_large: -1.0000
+map_per_class: tensor([0.6188, 0.0000, 0.4548])
+mar_100_per_class: tensor([0.6250, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 3, 0] | F1: 0.3662 | mAP: 0.3579
+[2, 3, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  0  15 151]
+ [  0   0  43]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.7384
+Class 2 AP: 0.2150
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.3989
+map_50: 0.3989
+map_75: -1.0000
+map_small: 0.3634
+map_medium: 0.3980
+map_large: -1.0000
+mar_1: 0.6057
+mar_10: 0.6135
+mar_100: 0.6135
+mar_small: 0.5417
+mar_medium: 0.7057
+mar_large: -1.0000
+map_per_class: tensor([0.7317, 0.0990, 0.3661])
+mar_100_per_class: tensor([0.7500, 0.0904, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 3, 1] | F1: 0.4589 | mAP: 0.3989
+[2, 3, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  1  11 154]
+ [  0   0  43]]
+Class 0 AP: 0.7363
+Class 1 AP: 0.7315
+Class 2 AP: 0.2118
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4121
+map_50: 0.4121
+map_75: -1.0000
+map_small: 0.3773
+map_medium: 0.3826
+map_large: -1.0000
+mar_1: 0.5977
+mar_10: 0.6054
+mar_100: 0.6054
+mar_small: 0.5417
+mar_medium: 0.6953
+mar_large: -1.0000
+map_per_class: tensor([0.7396, 0.0693, 0.4275])
+mar_100_per_class: tensor([0.7500, 0.0663, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 3, 4] | F1: 0.4370 | mAP: 0.4121
+[2, 3, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  13 152]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7350
+Class 2 AP: 0.2161
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5433
+map_50: 0.5433
+map_75: -1.0000
+map_small: 0.5419
+map_medium: 0.3831
+map_large: -1.0000
+mar_1: 0.6295
+mar_10: 0.6372
+mar_100: 0.6372
+mar_small: 0.5833
+mar_medium: 0.7005
+mar_large: -1.0000
+map_per_class: tensor([0.8261, 0.0785, 0.7254])
+mar_100_per_class: tensor([0.8333, 0.0783, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 3, 5] | F1: 0.4632 | mAP: 0.5433
+[2, 4, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  0  19 147]
+ [  0   0  43]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.7454
+Class 2 AP: 0.2194
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4498
+map_50: 0.4498
+map_75: -1.0000
+map_small: 0.4387
+map_medium: 0.3949
+map_large: -1.0000
+mar_1: 0.5362
+mar_10: 0.6215
+mar_100: 0.6215
+mar_small: 0.5417
+mar_medium: 0.7161
+mar_large: -1.0000
+map_per_class: tensor([0.7478, 0.1168, 0.4847])
+mar_100_per_class: tensor([0.7500, 0.1145, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 4, 0] | F1: 0.4741 | mAP: 0.4498
+[2, 4, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  22 143]
+ [  0   3  40]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7347
+Class 2 AP: 0.2119
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5571
+map_50: 0.5571
+map_75: -1.0000
+map_small: 0.5551
+map_medium: 0.3836
+map_large: -1.0000
+mar_1: 0.6260
+mar_10: 0.6320
+mar_100: 0.6320
+mar_small: 0.6096
+mar_medium: 0.4661
+mar_large: -1.0000
+map_per_class: tensor([0.8265, 0.1374, 0.7074])
+mar_100_per_class: tensor([0.8333, 0.1325, 0.9302])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 4, 1] | F1: 0.4890 | mAP: 0.5571
+[2, 4, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  1  33 132]
+ [  0   3  40]]
+Class 0 AP: 0.7363
+Class 1 AP: 0.7530
+Class 2 AP: 0.2219
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5255
+map_50: 0.5255
+map_75: -1.0000
+map_small: 0.5012
+map_medium: 0.4059
+map_large: -1.0000
+mar_1: 0.6065
+mar_10: 0.6263
+mar_100: 0.6263
+mar_small: 0.5943
+mar_medium: 0.4870
+mar_large: -1.0000
+map_per_class: tensor([0.7525, 0.1951, 0.6288])
+mar_100_per_class: tensor([0.7500, 0.1988, 0.9302])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 4, 3] | F1: 0.5086 | mAP: 0.5255
+[2, 4, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  2  30 134]
+ [  0   1  42]]
+Class 0 AP: 0.7747
+Class 1 AP: 0.7586
+Class 2 AP: 0.2322
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6025
+map_50: 0.6025
+map_75: -1.0000
+map_small: 0.6543
+map_medium: 0.3928
+map_large: -1.0000
+mar_1: 0.6280
+mar_10: 0.6636
+mar_100: 0.6636
+mar_small: 0.6711
+mar_medium: 0.6354
+mar_large: -1.0000
+map_per_class: tensor([0.8298, 0.1863, 0.7913])
+mar_100_per_class: tensor([0.8333, 0.1807, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 4, 5] | F1: 0.5169 | mAP: 0.6025
+[2, 5, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  0   1 165]
+ [  0   0  43]]
+Class 0 AP: 0.8505
+Class 1 AP: 0.7142
+Class 2 AP: 0.2028
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4110
+map_50: 0.4110
+map_75: -1.0000
+map_small: 0.4606
+map_medium: 0.3486
+map_large: -1.0000
+mar_1: 0.6054
+mar_10: 0.6131
+mar_100: 0.6131
+mar_small: 0.5833
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.0099, 0.3916])
+mar_100_per_class: tensor([0.8333, 0.0060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 5, 0] | F1: 0.4194 | mAP: 0.4110
+[2, 5, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  10 155]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7298
+Class 2 AP: 0.2129
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4948
+map_50: 0.4948
+map_75: -1.0000
+map_small: 0.4940
+map_medium: 0.3701
+map_large: -1.0000
+mar_1: 0.6234
+mar_10: 0.6312
+mar_100: 0.6312
+mar_small: 0.5833
+mar_medium: 0.6927
+mar_large: -1.0000
+map_per_class: tensor([0.8265, 0.0693, 0.5886])
+mar_100_per_class: tensor([0.8333, 0.0602, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 5, 1] | F1: 0.4512 | mAP: 0.4948
+[2, 5, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  20 145]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7471
+Class 2 AP: 0.2240
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5572
+map_50: 0.5572
+map_75: -1.0000
+map_small: 0.5351
+map_medium: 0.4062
+map_large: -1.0000
+mar_1: 0.6435
+mar_10: 0.6513
+mar_100: 0.6513
+mar_small: 0.5833
+mar_medium: 0.7188
+mar_large: -1.0000
+map_per_class: tensor([0.8256, 0.1287, 0.7173])
+mar_100_per_class: tensor([0.8333, 0.1205, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 5, 3] | F1: 0.4900 | mAP: 0.5572
+[2, 5, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1  12 153]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7332
+Class 2 AP: 0.2161
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5255
+map_50: 0.5255
+map_75: -1.0000
+map_small: 0.5301
+map_medium: 0.3853
+map_large: -1.0000
+mar_1: 0.6413
+mar_10: 0.6491
+mar_100: 0.6491
+mar_small: 0.6042
+mar_medium: 0.6979
+mar_large: -1.0000
+map_per_class: tensor([0.8591, 0.0792, 0.6382])
+mar_100_per_class: tensor([0.8750, 0.0723, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 5, 4] | F1: 0.4677 | mAP: 0.5255
+[3, 0, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 75 90]
+ [ 0  0 43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8424
+Class 2 AP: 0.3139
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6976
+map_50: 0.6976
+map_75: -1.0000
+map_small: 0.5276
+map_medium: 0.7528
+map_large: -1.0000
+mar_1: 0.7540
+mar_10: 0.7617
+mar_100: 0.7617
+mar_small: 0.5833
+mar_medium: 0.8620
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.4554, 0.8056])
+mar_100_per_class: tensor([0.8333, 0.4518, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 0, 1] | F1: 0.6630 | mAP: 0.6976
+[3, 0, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  48 117]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7956
+Class 2 AP: 0.2622
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6490
+map_50: 0.6490
+map_75: -1.0000
+map_small: 0.5344
+map_medium: 0.6697
+map_large: -1.0000
+mar_1: 0.6997
+mar_10: 0.7075
+mar_100: 0.7075
+mar_small: 0.5833
+mar_medium: 0.7917
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.2863, 0.8291])
+mar_100_per_class: tensor([0.8333, 0.2892, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 0, 2] | F1: 0.5843 | mAP: 0.6490
+[3, 0, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 71 94]
+ [ 0  0 43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8354
+Class 2 AP: 0.3050
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.7083
+map_50: 0.7083
+map_75: -1.0000
+map_small: 0.5501
+map_medium: 0.7129
+map_large: -1.0000
+mar_1: 0.7459
+mar_10: 0.7537
+mar_100: 0.7537
+mar_small: 0.5833
+mar_medium: 0.8516
+mar_large: -1.0000
+map_per_class: tensor([0.8265, 0.4257, 0.8728])
+mar_100_per_class: tensor([0.8333, 0.4277, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 0, 4] | F1: 0.6518 | mAP: 0.7083
+[3, 0, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  65 100]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.8250
+Class 2 AP: 0.2905
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6998
+map_50: 0.6998
+map_75: -1.0000
+map_small: 0.5414
+map_medium: 0.7300
+map_large: -1.0000
+mar_1: 0.7200
+mar_10: 0.7277
+mar_100: 0.7277
+mar_small: 0.5625
+mar_medium: 0.8359
+mar_large: -1.0000
+map_per_class: tensor([0.7841, 0.3960, 0.9192])
+mar_100_per_class: tensor([0.7917, 0.3916, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 0, 5] | F1: 0.6256 | mAP: 0.6998
+[3, 1, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   2 163]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7159
+Class 2 AP: 0.2057
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5210
+map_50: 0.5210
+map_75: -1.0000
+map_small: 0.5202
+map_medium: 0.3470
+map_large: -1.0000
+mar_1: 0.6213
+mar_10: 0.6290
+mar_100: 0.6290
+mar_small: 0.6042
+mar_medium: 0.6719
+mar_large: -1.0000
+map_per_class: tensor([0.8660, 0.0198, 0.6774])
+mar_100_per_class: tensor([0.8750, 0.0120, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 1, 0] | F1: 0.4260 | mAP: 0.5210
+[3, 1, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1   2 163]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7159
+Class 2 AP: 0.2048
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5123
+map_50: 0.5123
+map_75: -1.0000
+map_small: 0.5250
+map_medium: 0.3522
+map_large: -1.0000
+mar_1: 0.5686
+mar_10: 0.6151
+mar_100: 0.6151
+mar_small: 0.5833
+mar_medium: 0.6719
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.0198, 0.6854])
+mar_100_per_class: tensor([0.8333, 0.0120, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 1, 2] | F1: 0.4175 | mAP: 0.5123
+[3, 1, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   1 164]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7142
+Class 2 AP: 0.2048
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5012
+map_50: 0.5012
+map_75: -1.0000
+map_small: 0.5223
+map_medium: 0.3433
+map_large: -1.0000
+mar_1: 0.6038
+mar_10: 0.6270
+mar_100: 0.6270
+mar_small: 0.6042
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.8660, 0.0050, 0.6327])
+mar_100_per_class: tensor([0.8750, 0.0060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 1, 4] | F1: 0.4216 | mAP: 0.5012
+[3, 1, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1   0 165]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7124
+Class 2 AP: 0.2028
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5703
+map_50: 0.5703
+map_75: -1.0000
+map_small: 0.5740
+map_medium: 0.3396
+map_large: -1.0000
+mar_1: 0.6034
+mar_10: 0.6111
+mar_100: 0.6111
+mar_small: 0.5833
+mar_medium: 0.6667
+mar_large: -1.0000
+map_per_class: tensor([0.8245, 0.0000, 0.8863])
+mar_100_per_class: tensor([0.8333, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 1, 5] | F1: 0.4087 | mAP: 0.5703
+[3, 2, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   5 160]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7211
+Class 2 AP: 0.2087
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5752
+map_50: 0.5752
+map_75: -1.0000
+map_small: 0.5885
+map_medium: 0.3582
+map_large: -1.0000
+mar_1: 0.5963
+mar_10: 0.6350
+mar_100: 0.6350
+mar_small: 0.6042
+mar_medium: 0.6797
+mar_large: -1.0000
+map_per_class: tensor([0.8678, 0.0347, 0.8231])
+mar_100_per_class: tensor([0.8750, 0.0301, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 2, 0] | F1: 0.4390 | mAP: 0.5752
+[3, 2, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1  26 139]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7575
+Class 2 AP: 0.2324
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5717
+map_50: 0.5717
+map_75: -1.0000
+map_small: 0.5453
+map_medium: 0.4167
+map_large: -1.0000
+mar_1: 0.6695
+mar_10: 0.6772
+mar_100: 0.6772
+mar_small: 0.6042
+mar_medium: 0.7344
+mar_large: -1.0000
+map_per_class: tensor([0.8644, 0.1529, 0.6978])
+mar_100_per_class: tensor([0.8750, 0.1566, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 2, 1] | F1: 0.5204 | mAP: 0.5717
+[3, 2, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  0  45 121]
+ [  0   0  43]]
+Class 0 AP: 0.8505
+Class 1 AP: 0.7904
+Class 2 AP: 0.2560
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6297
+map_50: 0.6297
+map_75: -1.0000
+map_small: 0.5673
+map_medium: 0.4459
+map_large: -1.0000
+mar_1: 0.6937
+mar_10: 0.7015
+mar_100: 0.7015
+mar_small: 0.6042
+mar_medium: 0.7422
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.2723, 0.7852])
+mar_100_per_class: tensor([0.8333, 0.2711, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 2, 4] | F1: 0.5811 | mAP: 0.6297
+[3, 2, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  15 150]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7384
+Class 2 AP: 0.2172
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5470
+map_50: 0.5470
+map_75: -1.0000
+map_small: 0.5391
+map_medium: 0.3450
+map_large: -1.0000
+mar_1: 0.6196
+mar_10: 0.6273
+mar_100: 0.6273
+mar_small: 0.5833
+mar_medium: 0.6641
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.0928, 0.7561])
+mar_100_per_class: tensor([0.7917, 0.0904, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 2, 5] | F1: 0.4621 | mAP: 0.5470
+[3, 4, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1   0 165]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7124
+Class 2 AP: 0.2028
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5537
+map_50: 0.5537
+map_75: -1.0000
+map_small: 0.5795
+map_medium: 0.3086
+map_large: -1.0000
+mar_1: 0.5956
+mar_10: 0.6111
+mar_100: 0.6111
+mar_small: 0.6042
+mar_medium: 0.6250
+mar_large: -1.0000
+map_per_class: tensor([0.8298, 0.0000, 0.8312])
+mar_100_per_class: tensor([0.8333, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 4, 0] | F1: 0.4087 | mAP: 0.5537
+[3, 4, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   8 157]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7263
+Class 2 AP: 0.2118
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5481
+map_50: 0.5481
+map_75: -1.0000
+map_small: 0.5889
+map_medium: 0.3653
+map_large: -1.0000
+mar_1: 0.5946
+mar_10: 0.6411
+mar_100: 0.6411
+mar_small: 0.6042
+mar_medium: 0.6875
+mar_large: -1.0000
+map_per_class: tensor([0.8660, 0.0462, 0.7322])
+mar_100_per_class: tensor([0.8750, 0.0482, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 4, 1] | F1: 0.4515 | mAP: 0.5481
+[3, 4, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   2 163]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7159
+Class 2 AP: 0.2057
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5596
+map_50: 0.5596
+map_75: -1.0000
+map_small: 0.5883
+map_medium: 0.3545
+map_large: -1.0000
+mar_1: 0.5670
+mar_10: 0.6290
+mar_100: 0.6290
+mar_small: 0.6042
+mar_medium: 0.6719
+mar_large: -1.0000
+map_per_class: tensor([0.8677, 0.0132, 0.7979])
+mar_100_per_class: tensor([0.8750, 0.0120, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 4, 2] | F1: 0.4260 | mAP: 0.5596
+[3, 4, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1   9 156]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7280
+Class 2 AP: 0.2108
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5567
+map_50: 0.5567
+map_75: -1.0000
+map_small: 0.5816
+map_medium: 0.3293
+map_large: -1.0000
+mar_1: 0.5998
+mar_10: 0.6153
+mar_100: 0.6153
+mar_small: 0.5833
+mar_medium: 0.6484
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.0564, 0.8216])
+mar_100_per_class: tensor([0.7917, 0.0542, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 4, 5] | F1: 0.4382 | mAP: 0.5567
+[3, 5, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1   0 165]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7124
+Class 2 AP: 0.2028
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4868
+map_50: 0.4868
+map_75: -1.0000
+map_small: 0.4785
+map_medium: 0.4126
+map_large: -1.0000
+mar_1: 0.6111
+mar_10: 0.6111
+mar_100: 0.6111
+mar_small: 0.5833
+mar_medium: 0.6667
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.0000, 0.6286])
+mar_100_per_class: tensor([0.8333, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 5, 0] | F1: 0.4087 | mAP: 0.4868
+[3, 5, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   1 164]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7142
+Class 2 AP: 0.2048
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5046
+map_50: 0.5046
+map_75: -1.0000
+map_small: 0.5200
+map_medium: 0.3483
+map_large: -1.0000
+mar_1: 0.6193
+mar_10: 0.6270
+mar_100: 0.6270
+mar_small: 0.6042
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.8663, 0.0099, 0.6377])
+mar_100_per_class: tensor([0.8750, 0.0060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 5, 1] | F1: 0.4216 | mAP: 0.5046
+[3, 5, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   0 165]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7124
+Class 2 AP: 0.2038
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4486
+map_50: 0.4486
+map_75: -1.0000
+map_small: 0.4784
+map_medium: 0.3504
+map_large: -1.0000
+mar_1: 0.6172
+mar_10: 0.6250
+mar_100: 0.6250
+mar_small: 0.6042
+mar_medium: 0.6667
+mar_large: -1.0000
+map_per_class: tensor([0.8695, 0.0000, 0.4763])
+mar_100_per_class: tensor([0.8750, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 5, 2] | F1: 0.4172 | mAP: 0.4486
+[3, 5, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   2 163]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7159
+Class 2 AP: 0.2057
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5367
+map_50: 0.5367
+map_75: -1.0000
+map_small: 0.5516
+map_medium: 0.3531
+map_large: -1.0000
+mar_1: 0.6135
+mar_10: 0.6290
+mar_100: 0.6290
+mar_small: 0.6042
+mar_medium: 0.6719
+mar_large: -1.0000
+map_per_class: tensor([0.8695, 0.0198, 0.7209])
+mar_100_per_class: tensor([0.8750, 0.0120, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[3, 5, 4] | F1: 0.4260 | mAP: 0.5367
+[4, 0, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  61 104]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.8181
+Class 2 AP: 0.2829
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6421
+map_50: 0.6421
+map_75: -1.0000
+map_small: 0.4992
+map_medium: 0.5156
+map_large: -1.0000
+mar_1: 0.7120
+mar_10: 0.7197
+mar_100: 0.7197
+mar_small: 0.5625
+mar_medium: 0.8255
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.3660, 0.7681])
+mar_100_per_class: tensor([0.7917, 0.3675, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 0, 1] | F1: 0.6140 | mAP: 0.6421
+[4, 0, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  20 145]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7471
+Class 2 AP: 0.2228
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4803
+map_50: 0.4803
+map_75: -1.0000
+map_small: 0.4124
+map_medium: 0.4027
+map_large: -1.0000
+mar_1: 0.6296
+mar_10: 0.6374
+mar_100: 0.6374
+mar_small: 0.5625
+mar_medium: 0.7188
+mar_large: -1.0000
+map_per_class: tensor([0.7901, 0.1273, 0.5234])
+mar_100_per_class: tensor([0.7917, 0.1205, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 0, 2] | F1: 0.4810 | mAP: 0.4803
+[4, 0, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  1  65 100]
+ [  0   0  43]]
+Class 0 AP: 0.7363
+Class 1 AP: 0.8250
+Class 2 AP: 0.2886
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5747
+map_50: 0.5747
+map_75: -1.0000
+map_small: 0.4073
+map_medium: 0.5302
+map_large: -1.0000
+mar_1: 0.7061
+mar_10: 0.7139
+mar_100: 0.7139
+mar_small: 0.5417
+mar_medium: 0.8359
+mar_large: -1.0000
+map_per_class: tensor([0.7525, 0.3956, 0.5761])
+mar_100_per_class: tensor([0.7500, 0.3916, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 0, 3] | F1: 0.6160 | mAP: 0.5747
+[4, 0, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  0  66 100]
+ [  0   0  43]]
+Class 0 AP: 0.8505
+Class 1 AP: 0.8268
+Class 2 AP: 0.2925
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6921
+map_50: 0.6921
+map_75: -1.0000
+map_small: 0.5531
+map_medium: 0.5265
+map_large: -1.0000
+mar_1: 0.7359
+mar_10: 0.7436
+mar_100: 0.7436
+mar_small: 0.5833
+mar_medium: 0.8385
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.3953, 0.8494])
+mar_100_per_class: tensor([0.8333, 0.3976, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 0, 5] | F1: 0.6436 | mAP: 0.6921
+[4, 1, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   1   5]
+ [  0  13 153]
+ [  0   3  40]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.7165
+Class 2 AP: 0.2008
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5005
+map_50: 0.5005
+map_75: -1.0000
+map_small: 0.5249
+map_medium: 0.3209
+map_large: -1.0000
+mar_1: 0.5707
+mar_10: 0.5862
+mar_100: 0.5862
+mar_small: 0.5625
+mar_medium: 0.4089
+mar_large: -1.0000
+map_per_class: tensor([0.7499, 0.0606, 0.6910])
+mar_100_per_class: tensor([0.7500, 0.0783, 0.9302])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 1, 0] | F1: 0.4437 | mAP: 0.5005
+[4, 1, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  11 154]
+ [  0   2  41]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7213
+Class 2 AP: 0.2050
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5819
+map_50: 0.5819
+map_75: -1.0000
+map_small: 0.5682
+map_medium: 0.3575
+map_large: -1.0000
+mar_1: 0.6177
+mar_10: 0.6177
+mar_100: 0.6177
+mar_small: 0.5833
+mar_medium: 0.5286
+mar_large: -1.0000
+map_per_class: tensor([0.8265, 0.0613, 0.8577])
+mar_100_per_class: tensor([0.8333, 0.0663, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 1, 2] | F1: 0.4502 | mAP: 0.5819
+[4, 1, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  29 136]
+ [  0   2  41]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7514
+Class 2 AP: 0.2234
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5176
+map_50: 0.5176
+map_75: -1.0000
+map_small: 0.5990
+map_medium: 0.3787
+map_large: -1.0000
+mar_1: 0.5518
+mar_10: 0.6400
+mar_100: 0.6400
+mar_small: 0.6765
+mar_medium: 0.5417
+mar_large: -1.0000
+map_per_class: tensor([0.7798, 0.1749, 0.5980])
+mar_100_per_class: tensor([0.7917, 0.1747, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 1, 3] | F1: 0.5075 | mAP: 0.5176
+[4, 1, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   1   4]
+ [  1  17 148]
+ [  0   2  41]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7265
+Class 2 AP: 0.2111
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5325
+map_50: 0.5325
+map_75: -1.0000
+map_small: 0.6044
+map_medium: 0.3256
+map_large: -1.0000
+mar_1: 0.6078
+mar_10: 0.6159
+mar_100: 0.6159
+mar_small: 0.6184
+mar_medium: 0.4922
+mar_large: -1.0000
+map_per_class: tensor([0.7921, 0.0955, 0.7098])
+mar_100_per_class: tensor([0.7917, 0.1024, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 1, 5] | F1: 0.4646 | mAP: 0.5325
+[4, 2, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1   8 157]
+ [  0   3  40]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7132
+Class 2 AP: 0.1980
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5117
+map_50: 0.5117
+map_75: -1.0000
+map_small: 0.5090
+map_medium: 0.3509
+map_large: -1.0000
+mar_1: 0.5884
+mar_10: 0.6039
+mar_100: 0.6039
+mar_small: 0.5833
+mar_medium: 0.4375
+mar_large: -1.0000
+map_per_class: tensor([0.8281, 0.0330, 0.6741])
+mar_100_per_class: tensor([0.8333, 0.0482, 0.9302])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 2, 0] | F1: 0.4357 | mAP: 0.5117
+[4, 2, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  0  38 128]
+ [  0   4  39]]
+Class 0 AP: 0.8131
+Class 1 AP: 0.7565
+Class 2 AP: 0.2228
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5822
+map_50: 0.5822
+map_75: -1.0000
+map_small: 0.5613
+map_medium: 0.4109
+map_large: -1.0000
+mar_1: 0.6247
+mar_10: 0.6425
+mar_100: 0.6425
+mar_small: 0.6064
+mar_medium: 0.4193
+mar_large: -1.0000
+map_per_class: tensor([0.7876, 0.2091, 0.7500])
+mar_100_per_class: tensor([0.7917, 0.2289, 0.9070])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 2, 1] | F1: 0.5373 | mAP: 0.5822
+[4, 2, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1  59 106]
+ [  0   4  39]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7921
+Class 2 AP: 0.2530
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5478
+map_50: 0.5478
+map_75: -1.0000
+map_small: 0.4500
+map_medium: 0.4745
+map_large: -1.0000
+mar_1: 0.6497
+mar_10: 0.6847
+mar_100: 0.6847
+mar_small: 0.5800
+mar_medium: 0.4818
+mar_large: -1.0000
+map_per_class: tensor([0.7901, 0.3360, 0.5172])
+mar_100_per_class: tensor([0.7917, 0.3554, 0.9070])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 2, 3] | F1: 0.5944 | mAP: 0.5478
+[4, 2, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1  17 148]
+ [  0   4  39]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7224
+Class 2 AP: 0.2024
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5485
+map_50: 0.5485
+map_75: -1.0000
+map_small: 0.5630
+map_medium: 0.3623
+map_large: -1.0000
+mar_1: 0.5985
+mar_10: 0.6142
+mar_100: 0.6142
+mar_small: 0.6184
+mar_medium: 0.3672
+mar_large: -1.0000
+map_per_class: tensor([0.8281, 0.0914, 0.7261])
+mar_100_per_class: tensor([0.8333, 0.1024, 0.9070])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 2, 5] | F1: 0.4680 | mAP: 0.5485
+[4, 3, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1   0 165]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7124
+Class 2 AP: 0.2019
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4542
+map_50: 0.4542
+map_75: -1.0000
+map_small: 0.4341
+map_medium: 0.3440
+map_large: -1.0000
+mar_1: 0.5895
+mar_10: 0.5972
+mar_100: 0.5972
+mar_small: 0.5625
+mar_medium: 0.6667
+mar_large: -1.0000
+map_per_class: tensor([0.7883, 0.0000, 0.5743])
+mar_100_per_class: tensor([0.7917, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 3, 0] | F1: 0.3999 | mAP: 0.4542
+[4, 3, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 17   0   7]
+ [  1   4 161]
+ [  0   0  43]]
+Class 0 AP: 0.6990
+Class 1 AP: 0.7194
+Class 2 AP: 0.2038
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4533
+map_50: 0.4533
+map_75: -1.0000
+map_small: 0.4479
+map_medium: 0.3587
+map_large: -1.0000
+mar_1: 0.5620
+mar_10: 0.5775
+mar_100: 0.5775
+mar_small: 0.5208
+mar_medium: 0.6771
+mar_large: -1.0000
+map_per_class: tensor([0.7008, 0.0277, 0.6314])
+mar_100_per_class: tensor([0.7083, 0.0241, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 3, 1] | F1: 0.3984 | mAP: 0.4533
+[4, 3, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1   0 165]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7124
+Class 2 AP: 0.2019
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4994
+map_50: 0.4994
+map_75: -1.0000
+map_small: 0.4973
+map_medium: 0.3391
+map_large: -1.0000
+mar_1: 0.5817
+mar_10: 0.5972
+mar_100: 0.5972
+mar_small: 0.5625
+mar_medium: 0.6667
+mar_large: -1.0000
+map_per_class: tensor([0.7876, 0.0000, 0.7104])
+mar_100_per_class: tensor([0.7917, 0.0000, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 3, 2] | F1: 0.3999 | mAP: 0.4994
+[4, 3, 5]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  0   2 164]
+ [  0   0  43]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.7159
+Class 2 AP: 0.2019
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5116
+map_50: 0.5116
+map_75: -1.0000
+map_small: 0.5185
+map_medium: 0.3081
+map_large: -1.0000
+mar_1: 0.5718
+mar_10: 0.5873
+mar_100: 0.5873
+mar_small: 0.5625
+mar_medium: 0.6302
+mar_large: -1.0000
+map_per_class: tensor([0.7499, 0.0198, 0.7652])
+mar_100_per_class: tensor([0.7500, 0.0120, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 3, 5] | F1: 0.4056 | mAP: 0.5116
+[4, 5, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  0   2 164]
+ [  0   1  42]]
+Class 0 AP: 0.8505
+Class 1 AP: 0.7119
+Class 2 AP: 0.1996
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5292
+map_50: 0.5292
+map_75: -1.0000
+map_small: 0.5647
+map_medium: 0.3458
+map_large: -1.0000
+mar_1: 0.6074
+mar_10: 0.6074
+mar_100: 0.6074
+mar_small: 0.5833
+mar_medium: 0.5885
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.0198, 0.7361])
+mar_100_per_class: tensor([0.8333, 0.0120, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 5, 0] | F1: 0.4216 | mAP: 0.5292
+[4, 5, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1   6 159]
+ [  0   0  43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7228
+Class 2 AP: 0.2087
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4654
+map_50: 0.4654
+map_75: -1.0000
+map_small: 0.5388
+map_medium: 0.3606
+map_large: -1.0000
+mar_1: 0.6154
+mar_10: 0.6232
+mar_100: 0.6232
+mar_small: 0.5833
+mar_medium: 0.6823
+mar_large: -1.0000
+map_per_class: tensor([0.8261, 0.0396, 0.5305])
+mar_100_per_class: tensor([0.8333, 0.0361, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 5, 1] | F1: 0.4347 | mAP: 0.4654
+[4, 5, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  3   3 160]
+ [  0   0  43]]
+Class 0 AP: 0.7418
+Class 1 AP: 0.7176
+Class 2 AP: 0.2077
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5212
+map_50: 0.5212
+map_75: -1.0000
+map_small: 0.5703
+map_medium: 0.3537
+map_large: -1.0000
+mar_1: 0.6094
+mar_10: 0.6171
+mar_100: 0.6171
+mar_small: 0.5833
+mar_medium: 0.6745
+mar_large: -1.0000
+map_per_class: tensor([0.8298, 0.0198, 0.7141])
+mar_100_per_class: tensor([0.8333, 0.0181, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 5, 2] | F1: 0.4102 | mAP: 0.5212
+[4, 5, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  0  25 141]
+ [  0   0  43]]
+Class 0 AP: 0.8505
+Class 1 AP: 0.7558
+Class 2 AP: 0.2287
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5963
+map_50: 0.5963
+map_75: -1.0000
+map_small: 0.6569
+map_medium: 0.3879
+map_large: -1.0000
+mar_1: 0.6355
+mar_10: 0.6613
+mar_100: 0.6613
+mar_small: 0.6623
+mar_medium: 0.7083
+mar_large: -1.0000
+map_per_class: tensor([0.8245, 0.1584, 0.8060])
+mar_100_per_class: tensor([0.8333, 0.1506, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[4, 5, 3] | F1: 0.5144 | mAP: 0.5963
+[5, 0, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[20  0  4]
+ [ 1 76 89]
+ [ 0  0 43]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.8441
+Class 2 AP: 0.3162
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6699
+map_50: 0.6699
+map_75: -1.0000
+map_small: 0.4979
+map_medium: 0.7464
+map_large: -1.0000
+mar_1: 0.7560
+mar_10: 0.7637
+mar_100: 0.7637
+mar_small: 0.5833
+mar_medium: 0.8646
+mar_large: -1.0000
+map_per_class: tensor([0.8317, 0.4548, 0.7232])
+mar_100_per_class: tensor([0.8333, 0.4578, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 0, 1] | F1: 0.6658 | mAP: 0.6699
+[5, 0, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1  47 118]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7939
+Class 2 AP: 0.2622
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6104
+map_50: 0.6104
+map_75: -1.0000
+map_small: 0.5092
+map_medium: 0.5465
+map_large: -1.0000
+mar_1: 0.7194
+mar_10: 0.7194
+mar_100: 0.7194
+mar_small: 0.6042
+mar_medium: 0.7891
+mar_large: -1.0000
+map_per_class: tensor([0.8677, 0.2851, 0.6785])
+mar_100_per_class: tensor([0.8750, 0.2831, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 0, 2] | F1: 0.5899 | mAP: 0.6104
+[5, 0, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[18  0  6]
+ [ 0 71 95]
+ [ 0  0 43]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.8354
+Class 2 AP: 0.2986
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5893
+map_50: 0.5893
+map_75: -1.0000
+map_small: 0.4077
+map_medium: 0.5922
+map_large: -1.0000
+mar_1: 0.7182
+mar_10: 0.7259
+mar_100: 0.7259
+mar_small: 0.5417
+mar_medium: 0.8516
+mar_large: -1.0000
+map_per_class: tensor([0.7478, 0.4255, 0.5946])
+mar_100_per_class: tensor([0.7500, 0.4277, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 0, 3] | F1: 0.6387 | mAP: 0.5893
+[5, 0, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[21  0  3]
+ [ 0 67 99]
+ [ 0  0 43]]
+Class 0 AP: 0.8879
+Class 1 AP: 0.8285
+Class 2 AP: 0.2966
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.6225
+map_50: 0.6225
+map_75: -1.0000
+map_small: 0.4722
+map_medium: 0.6286
+map_large: -1.0000
+mar_1: 0.7518
+mar_10: 0.7595
+mar_100: 0.7595
+mar_small: 0.6042
+mar_medium: 0.8411
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.4059, 0.5902])
+mar_100_per_class: tensor([0.8750, 0.4036, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 0, 4] | F1: 0.6553 | mAP: 0.6225
+[5, 1, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  0   2 164]
+ [  1   2  40]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7099
+Class 2 AP: 0.1926
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4563
+map_50: 0.4563
+map_75: -1.0000
+map_small: 0.4658
+map_medium: 0.3373
+map_large: -1.0000
+mar_1: 0.5748
+mar_10: 0.6058
+mar_100: 0.6058
+mar_small: 0.6042
+mar_medium: 0.4219
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.0079, 0.4896])
+mar_100_per_class: tensor([0.8750, 0.0120, 0.9302])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 1, 0] | F1: 0.4189 | mAP: 0.4563
+[5, 1, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   2 163]
+ [  0   1  42]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7119
+Class 2 AP: 0.2015
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5168
+map_50: 0.5168
+map_75: -1.0000
+map_small: 0.5250
+map_medium: 0.3463
+map_large: -1.0000
+mar_1: 0.5980
+mar_10: 0.6213
+mar_100: 0.6213
+mar_small: 0.6042
+mar_medium: 0.5885
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.0198, 0.6592])
+mar_100_per_class: tensor([0.8750, 0.0120, 0.9767])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 1, 2] | F1: 0.4238 | mAP: 0.5168
+[5, 1, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 20   0   4]
+ [  1   8 157]
+ [  0   2  41]]
+Class 0 AP: 0.8108
+Class 1 AP: 0.7167
+Class 2 AP: 0.2021
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5353
+map_50: 0.5353
+map_75: -1.0000
+map_small: 0.5285
+map_medium: 0.3555
+map_large: -1.0000
+mar_1: 0.6117
+mar_10: 0.6117
+mar_100: 0.6117
+mar_small: 0.5833
+mar_medium: 0.5208
+mar_large: -1.0000
+map_per_class: tensor([0.8237, 0.0369, 0.7454])
+mar_100_per_class: tensor([0.8333, 0.0482, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 1, 3] | F1: 0.4382 | mAP: 0.5353
+[5, 1, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   0 165]
+ [  0   2  41]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7124
+Class 2 AP: 0.1956
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5119
+map_50: 0.5119
+map_75: -1.0000
+map_small: 0.5202
+map_medium: 0.3359
+map_large: -1.0000
+mar_1: 0.6095
+mar_10: 0.6095
+mar_100: 0.6095
+mar_small: 0.6042
+mar_medium: 0.5000
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.0000, 0.6644])
+mar_100_per_class: tensor([0.8750, 0.0000, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 1, 4] | F1: 0.4128 | mAP: 0.5119
+[5, 2, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   7 158]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7246
+Class 2 AP: 0.2108
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4864
+map_50: 0.4864
+map_75: -1.0000
+map_small: 0.4732
+map_medium: 0.3653
+map_large: -1.0000
+mar_1: 0.6158
+mar_10: 0.6391
+mar_100: 0.6391
+mar_small: 0.6042
+mar_medium: 0.6849
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.0495, 0.5383])
+mar_100_per_class: tensor([0.8750, 0.0422, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 2, 0] | F1: 0.4474 | mAP: 0.4864
+[5, 2, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1  38 127]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7783
+Class 2 AP: 0.2486
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5113
+map_50: 0.5113
+map_75: -1.0000
+map_small: 0.4393
+map_medium: 0.4517
+map_large: -1.0000
+mar_1: 0.6936
+mar_10: 0.7013
+mar_100: 0.7013
+mar_small: 0.6042
+mar_medium: 0.7656
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.2252, 0.4374])
+mar_100_per_class: tensor([0.8750, 0.2289, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 2, 1] | F1: 0.5612 | mAP: 0.5113
+[5, 2, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  2  58 106]
+ [  0   0  43]]
+Class 0 AP: 0.8118
+Class 1 AP: 0.8129
+Class 2 AP: 0.2829
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5373
+map_50: 0.5373
+map_75: -1.0000
+map_small: 0.4338
+map_medium: 0.5050
+map_large: -1.0000
+mar_1: 0.7337
+mar_10: 0.7415
+mar_100: 0.7415
+mar_small: 0.6042
+mar_medium: 0.8177
+mar_large: -1.0000
+map_per_class: tensor([0.8695, 0.3460, 0.3965])
+mar_100_per_class: tensor([0.8750, 0.3494, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 2, 3] | F1: 0.6175 | mAP: 0.5373
+[5, 2, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1  40 125]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7817
+Class 2 AP: 0.2515
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5323
+map_50: 0.5323
+map_75: -1.0000
+map_small: 0.4481
+map_medium: 0.4632
+map_large: -1.0000
+mar_1: 0.6976
+mar_10: 0.7053
+mar_100: 0.7053
+mar_small: 0.6042
+mar_medium: 0.7708
+mar_large: -1.0000
+map_per_class: tensor([0.8713, 0.2446, 0.4809])
+mar_100_per_class: tensor([0.8750, 0.2410, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 2, 4] | F1: 0.5678 | mAP: 0.5323
+[5, 3, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 14   0  10]
+ [  1   1 164]
+ [  0   0  43]]
+Class 0 AP: 0.5874
+Class 1 AP: 0.7142
+Class 2 AP: 0.1982
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4389
+map_50: 0.4389
+map_75: -1.0000
+map_small: 0.4014
+map_medium: 0.3490
+map_large: -1.0000
+mar_1: 0.4910
+mar_10: 0.5298
+mar_100: 0.5298
+mar_small: 0.4583
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.5842, 0.0099, 0.7227])
+mar_100_per_class: tensor([0.5833, 0.0060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 3, 0] | F1: 0.3536 | mAP: 0.4389
+[5, 3, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 16   0   8]
+ [  1   1 164]
+ [  0   0  43]]
+Class 0 AP: 0.6618
+Class 1 AP: 0.7142
+Class 2 AP: 0.2000
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.3558
+map_50: 0.3558
+map_75: -1.0000
+map_small: 0.3490
+map_medium: 0.3540
+map_large: -1.0000
+mar_1: 0.5266
+mar_10: 0.5576
+mar_100: 0.5576
+mar_small: 0.5000
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.6590, 0.0099, 0.3984])
+mar_100_per_class: tensor([0.6667, 0.0060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 3, 1] | F1: 0.3753 | mAP: 0.3558
+[5, 3, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  1   1 164]
+ [  0   0  43]]
+Class 0 AP: 0.7363
+Class 1 AP: 0.7142
+Class 2 AP: 0.2019
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5049
+map_50: 0.5049
+map_75: -1.0000
+map_small: 0.4954
+map_medium: 0.3549
+map_large: -1.0000
+mar_1: 0.5621
+mar_10: 0.5853
+mar_100: 0.5853
+mar_small: 0.5417
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.7499, 0.0099, 0.7549])
+mar_100_per_class: tensor([0.7500, 0.0060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 3, 2] | F1: 0.3950 | mAP: 0.5049
+[5, 3, 4]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 19   0   5]
+ [  1   1 164]
+ [  0   0  43]]
+Class 0 AP: 0.7735
+Class 1 AP: 0.7142
+Class 2 AP: 0.2028
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4668
+map_50: 0.4668
+map_75: -1.0000
+map_small: 0.4549
+map_medium: 0.3552
+map_large: -1.0000
+mar_1: 0.5915
+mar_10: 0.5992
+mar_100: 0.5992
+mar_small: 0.5625
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.7794, 0.0099, 0.6110])
+mar_100_per_class: tensor([0.7917, 0.0060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 3, 4] | F1: 0.4043 | mAP: 0.4668
+[5, 4, 0]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 17   0   7]
+ [  1   6 159]
+ [  0   0  43]]
+Class 0 AP: 0.6990
+Class 1 AP: 0.7228
+Class 2 AP: 0.2057
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.3672
+map_50: 0.3672
+map_75: -1.0000
+map_small: 0.4285
+map_medium: 0.3613
+map_large: -1.0000
+mar_1: 0.5195
+mar_10: 0.5815
+mar_100: 0.5815
+mar_small: 0.5208
+mar_medium: 0.6823
+mar_large: -1.0000
+map_per_class: tensor([0.7030, 0.0354, 0.3631])
+mar_100_per_class: tensor([0.7083, 0.0361, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 4, 0] | F1: 0.4069 | mAP: 0.3672
+[5, 4, 1]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 18   0   6]
+ [  0  15 151]
+ [  0   0  43]]
+Class 0 AP: 0.7758
+Class 1 AP: 0.7384
+Class 2 AP: 0.2150
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4229
+map_50: 0.4229
+map_75: -1.0000
+map_small: 0.5141
+map_medium: 0.3847
+map_large: -1.0000
+mar_1: 0.4817
+mar_10: 0.6135
+mar_100: 0.6135
+mar_small: 0.5417
+mar_medium: 0.7057
+mar_large: -1.0000
+map_per_class: tensor([0.7478, 0.0972, 0.4238])
+mar_100_per_class: tensor([0.7500, 0.0904, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 4, 1] | F1: 0.4589 | mAP: 0.4229
+[5, 4, 2]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 21   0   3]
+ [  1   1 164]
+ [  0   0  43]]
+Class 0 AP: 0.8481
+Class 1 AP: 0.7142
+Class 2 AP: 0.2048
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4845
+map_50: 0.4845
+map_75: -1.0000
+map_small: 0.5768
+map_medium: 0.3490
+map_large: -1.0000
+mar_1: 0.4720
+mar_10: 0.6270
+mar_100: 0.6270
+mar_small: 0.6042
+mar_medium: 0.6693
+mar_large: -1.0000
+map_per_class: tensor([0.8660, 0.0050, 0.5825])
+mar_100_per_class: tensor([0.8750, 0.0060, 1.0000])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 4, 2] | F1: 0.4216 | mAP: 0.4845
+[5, 4, 3]
+########### Testing with best permutation ###########
+Confusion Matrix (rows=target, cols=pred):
+[[ 17   0   7]
+ [  0  23 143]
+ [  0   2  41]]
+Class 0 AP: 0.7384
+Class 1 AP: 0.7412
+Class 2 AP: 0.2133
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.4980
+map_50: 0.4980
+map_75: -1.0000
+map_small: 0.4778
+map_medium: 0.3950
+map_large: -1.0000
+mar_1: 0.5769
+mar_10: 0.6001
+mar_100: 0.6001
+mar_small: 0.5208
+mar_medium: 0.5599
+mar_large: -1.0000
+map_per_class: tensor([0.7030, 0.1344, 0.6567])
+mar_100_per_class: tensor([0.7083, 0.1386, 0.9535])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[5, 4, 3] | F1: 0.4735 | mAP: 0.4980
+0.7083385586738586 [3, 0, 4]

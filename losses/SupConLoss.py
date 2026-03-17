@@ -32,6 +32,7 @@ class SupConLoss(nn.Module):
             A loss scalar.
         """
         # print(features.shape, labels.shape)
+        
         device = (torch.device('cuda')
                   if features.is_cuda
                   else torch.device('cpu'))
@@ -99,6 +100,25 @@ class SupConLoss(nn.Module):
         mask_pos_pairs = mask.sum(1)
         mask_pos_pairs = torch.where(mask_pos_pairs < 1e-6, 1, mask_pos_pairs)
         mean_log_prob_pos = (mask * log_prob).sum(1) / mask_pos_pairs
+        # print("log_prob has nan:", torch.isnan(log_prob).any().item())
+        # print("log_prob has inf:", torch.isinf(log_prob).any().item())
+        # if torch.isinf(log_prob).any():
+        #     finite_mask = torch.isfinite(log_prob)
+        #     num_finite = finite_mask.sum().item()
+        #     num_total = log_prob.numel()
+
+        #     print("finite:", num_finite, "/", num_total)
+        #     print("nan count:", torch.isnan(log_prob).sum().item())
+        #     print("inf count:", torch.isinf(log_prob).sum().item())
+
+        #     if num_finite > 0:
+        #         lp_finite = log_prob[finite_mask]
+        #         print("finite max:", lp_finite.max().item())
+        #         print("finite min:", lp_finite.min().item())
+        #     else:
+        #         print("log_prob has NO finite values at all")
+        # print("log_prob finite:", torch.isfinite(log_prob).all().item())
+        # print(torch.isnan(mask).any(), torch.isnan(log_prob).any(), torch.isnan(mask * log_prob).any(), torch.isnan(mean_log_prob_pos).any())
 
         # loss
         loss = - (self.temperature / self.base_temperature) * mean_log_prob_pos

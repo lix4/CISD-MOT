@@ -5,7 +5,11 @@
 *.out
 *.err
 *.mp4
+*.png
+*.jpg
+*.json
 runs/
 /eval_outputs/
 deep_sort_pytorch/
-datasets/*.json
+datasets/*.jsonmeta-files/trainlist_e2e_new_1_filled.txt
+meta-files/od_af_train.txt

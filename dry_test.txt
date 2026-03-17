@@ -1,0 +1,149 @@
+########### Testing with best permutation ###########
+12.03.22_c-task_video_test_c_0-00064.jpg
+12.03.22_c-task_video_test_c_0-00089.jpg
+12.03.22_c-task_video_test_c_0-00114.jpg
+12.03.22_c-task_video_test_c_0-00139.jpg
+12.03.22_c-task_video_test_c_0-00164.jpg
+12.03.22_c-task_video_test_c_0-00189.jpg
+12.03.22_c-task_video_test_c_0-00214.jpg
+12.03.22_c-task_video_test_c_0-00239.jpg
+12.03.22_c-task_video_test_c_0-00264.jpg
+12.03.22_c-task_video_test_c_0-00289.jpg
+12.03.22_c-task_video_test_c_0-00314.jpg
+12.03.22_c-task_video_test_c_0-00339.jpg
+12.03.22_c-task_video_test_c_0-00364.jpg
+12.03.22_c-task_video_test_c_0-00389.jpg
+12.03.22_c-task_video_test_c_0-00414.jpg
+12.03.22_c-task_video_test_c_0-00439.jpg
+12.03.22_c-task_video_test_c_0-00464.jpg
+12.03.22_c-task_video_test_c_0-00489.jpg
+12.03.22_c-task_video_test_c_0-00514.jpg
+12.03.22_c-task_video_test_c_0-00539.jpg
+12.03.22_c-task_video_test_c_0-00564.jpg
+12.03.22_c-task_video_test_c_0-00589.jpg
+12.03.22_c-task_video_test_c_0-00614.jpg
+12.03.22_c-task_video_test_c_0-01239.jpg
+12.03.22_c-task_video_test_c_0-01389.jpg
+12.03.22_c-task_video_test_c_0-01439.jpg
+12.03.22_c-task_video_test_c_0-01464.jpg
+12.03.22_c-task_video_test_c_0-01489.jpg
+12.03.22_c-task_video_test_c_0-01514.jpg
+12.03.22_c-task_video_test_c_0-01539.jpg
+12.03.22_c-task_video_test_c_0-01564.jpg
+12.03.22_c-task_video_test_c_0-01589.jpg
+12.03.22_c-task_video_test_c_0-01614.jpg
+12.03.22_c-task_video_test_c_0-01639.jpg
+12.03.22_c-task_video_test_c_0-01664.jpg
+12.03.22_c-task_video_test_c_0-01689.jpg
+12.03.22_c-task_video_test_c_0-01714.jpg
+12.03.22_c-task_video_test_c_0-01739.jpg
+12.03.22_c-task_video_test_c_0-01764.jpg
+12.03.22_c-task_video_test_c_0-01789.jpg
+12.03.22_c-task_video_test_c_0-01814.jpg
+12.03.22_c-task_video_test_c_0-01839.jpg
+12.03.22_c-task_video_test_c_0-01864.jpg
+12.03.22_c-task_video_test_c_0-01889.jpg
+12.03.22_c-task_video_test_c_0-01914.jpg
+12.03.22_c-task_video_test_c_0-01939.jpg
+12.03.22_c-task_video_test_c_0-01989.jpg
+12.03.22_c-task_video_test_c_0-02014.jpg
+12.03.22_c-task_video_test_c_0-02139.jpg
+12.03.22_c-task_video_test_c_0-02189.jpg
+12.03.22_c-task_video_test_c_0-02214.jpg
+12.03.22_c-task_video_test_c_0-02414.jpg
+12.03.22_c-task_video_test_c_1-00489.jpg
+12.03.22_c-task_video_test_c_1-00514.jpg
+12.03.22_c-task_video_test_c_1-00539.jpg
+12.03.22_c-task_video_test_c_1-00564.jpg
+12.03.22_c-task_video_test_c_1-00589.jpg
+12.03.22_c-task_video_test_c_1-00614.jpg
+12.03.22_c-task_video_test_c_1-00639.jpg
+12.03.22_c-task_video_test_c_1-00664.jpg
+12.03.22_c-task_video_test_c_1-00689.jpg
+12.03.22_c-task_video_test_c_1-00714.jpg
+12.03.22_c-task_video_test_c_1-00739.jpg
+12.03.22_c-task_video_test_c_1-00764.jpg
+12.03.22_c-task_video_test_c_1-00789.jpg
+12.03.22_c-task_video_test_c_1-00814.jpg
+12.03.22_c-task_video_test_c_1-00839.jpg
+12.03.22_c-task_video_test_c_1-00864.jpg
+12.03.22_c-task_video_test_c_1-00889.jpg
+12.03.22_c-task_video_test_c_1-00914.jpg
+12.03.22_c-task_video_test_c_1-00939.jpg
+12.03.22_c-task_video_test_c_1-00964.jpg
+12.03.22_c-task_video_test_c_1-00989.jpg
+12.03.22_c-task_video_test_c_1-01014.jpg
+12.03.22_c-task_video_test_c_1-01039.jpg
+12.03.22_c-task_video_test_c_1-01114.jpg
+12.03.22_c-task_video_test_c_1-01139.jpg
+12.03.22_c-task_video_test_c_1-01164.jpg
+12.03.22_c-task_video_test_c_1-01189.jpg
+12.03.22_c-task_video_test_c_1-01214.jpg
+12.03.22_c-task_video_test_c_1-01239.jpg
+12.03.22_c-task_video_test_c_1-01264.jpg
+12.03.22_c-task_video_test_c_1-01289.jpg
+12.03.22_c-task_video_test_c_1-01314.jpg
+12.03.22_c-task_video_test_c_1-01339.jpg
+12.03.22_c-task_video_test_c_1-01364.jpg
+12.03.22_c-task_video_test_c_1-01389.jpg
+12.03.22_c-task_video_test_c_1-01414.jpg
+12.03.22_c-task_video_test_c_1-01439.jpg
+12.03.22_c-task_video_test_c_1-01464.jpg
+12.03.22_c-task_video_test_c_1-01489.jpg
+12.03.22_c-task_video_test_c_1-01989.jpg
+12.03.22_c-task_video_test_c_1-02014.jpg
+12.03.22_c-task_video_test_c_1-02039.jpg
+12.03.22_c-task_video_test_c_1-02064.jpg
+12.03.22_c-task_video_test_c_1-02089.jpg
+12.03.22_c-task_video_test_c_1-02114.jpg
+12.03.22_c-task_video_test_c_1-02139.jpg
+12.03.22_c-task_video_test_c_1-02164.jpg
+12.03.22_c-task_video_test_c_1-02189.jpg
+12.03.22_c-task_video_test_c_1-02214.jpg
+12.03.22_c-task_video_test_c_1-02239.jpg
+12.03.22_c-task_video_test_c_1-02264.jpg
+12.03.22_c-task_video_test_c_1-02289.jpg
+12.03.22_c-task_video_test_c_1-02314.jpg
+12.03.22_c-task_video_test_c_1-02339.jpg
+12.03.22_c-task_video_test_c_1-02364.jpg
+12.03.22_c-task_video_test_c_1-02389.jpg
+12.03.22_c-task_video_test_c_1-02414.jpg
+12.03.22_c-task_video_test_c_1-02439.jpg
+12.03.22_c-task_video_test_c_1-02464.jpg
+12.03.22_c-task_video_test_c_1-02489.jpg
+12.03.22_c-task_video_test_c_1-02514.jpg
+12.03.22_c-task_video_test_c_1-02539.jpg
+12.03.22_c-task_video_test_c_1-02564.jpg
+12.03.22_c-task_video_test_c_1-02589.jpg
+12.03.22_c-task_video_test_c_1-02614.jpg
+12.03.22_c-task_video_test_c_1-02639.jpg
+12.03.22_c-task_video_test_c_1-02664.jpg
+12.03.22_c-task_video_test_c_1-02689.jpg
+12.03.22_c-task_video_test_c_1-02714.jpg
+validation loss  nan
+Confusion Matrix (rows=target, cols=pred):
+[[ 40   0   5]
+ [  1  36 144]
+ [  0  10 153]]
+Class 0 AP: 0.8801
+Class 1 AP: 0.5284
+Class 2 AP: 0.5012
+########### det/cls mAP ###########
+Evaluation Metrics:
+map: 0.5251
+map_50: 0.5251
+map_75: -1.0000
+map_small: 0.5008
+map_medium: 0.6871
+map_large: -1.0000
+mar_1: 0.4806
+mar_10: 0.6513
+mar_100: 0.6513
+mar_small: 0.6168
+mar_medium: 0.7267
+mar_large: -1.0000
+map_per_class: tensor([0.8069, 0.1482, 0.6203])
+mar_100_per_class: tensor([0.8163, 0.1989, 0.9387])
+classes: tensor([0, 1, 2], dtype=torch.int32)
+########### det/cls mAP ###########
+[Test] best_p=[2, 4, 3, 0, 1, 5] | F1: 0.6352 | mAP: 0.6366

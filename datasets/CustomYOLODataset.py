@@ -7,32 +7,40 @@ import torch
 from torch.utils.data import DataLoader
 
 def custom_collate(batch):
-    pic_paths, images, targets = zip(*batch)
-    images = torch.stack(images, 0)
+    pic_paths, images, targets = zip(*batch)          # tuple 长度 = B
+    images = torch.stack(images, 0)                  # B,C,H,W
 
-    all_labels = []
-    for image_idx, boxes in enumerate(targets):
-        boxes=boxes[0]
+    all_labels = []                                  # 汇总所有 bbox
+    for img_idx, boxes in enumerate(targets):
+        # boxes: Tensor (Ni, 4)  or  shape = (0, 4) if no object
+        # print(boxes.shape)
+        # boxes = boxes[0]
+        if boxes.dim() == 3 and boxes.size(0) == 1:    # 1×N×4 → squeeze
+            boxes = boxes.squeeze(0)
         # print(boxes.shape)
         if boxes.numel() == 0:
-            continue
-        # 假设你已经得到 [N, 4] 的 box（x, y, w, h）格式：
-        boxes = boxes[:, 1:]  # 去掉 frame_idx
-        image_idx_col = torch.full((boxes.shape[0], 1), image_idx, dtype=torch.float32)
-        class_col = torch.zeros((boxes.shape[0], 1), dtype=torch.float32)  # 全部设为 0
-        # print(image_idx_col.shape, class_col.shape, boxes.shape)
-        labels = torch.cat([image_idx_col, class_col, boxes], dim=1)  # → [N, 6]
+            continue                                 # 跳过空图片
+
+        img_idx_col = torch.full(
+            (boxes.shape[0], 1), img_idx, dtype=torch.float32
+        )                                            # (Ni,1)
+        cls_col = torch.zeros(
+            (boxes.shape[0], 1), dtype=torch.float32
+        )                                            # (Ni,1) 全 0
+        # print(img_idx_col.shape, cls_col.shape, boxes.shape)
+        labels = torch.cat([img_idx_col, cls_col, boxes], dim=1)  # (Ni,6)
         all_labels.append(labels)
 
     if all_labels:
-        labels = torch.cat(all_labels, dim=0)  # [N_total, 6]
+        labels = torch.cat(all_labels, dim=0)        # (N_total, 6)
     else:
         labels = torch.zeros((0, 6), dtype=torch.float32)
 
-    return pic_paths, images, {'batch_idx': labels[:,0], 
-                               'cls': labels[:,1],
-                               'bboxes': labels[:, 2:]
-                               }
+    return pic_paths, images, {
+        "batch_idx": labels[:, 0],
+        "cls":       labels[:, 1],
+        "bboxes":    labels[:, 2:],                  # (N_total,4)
+    }
 
 class CustomYOLODataset(Dataset):
     def __init__(self, list_file, transform=None):
@@ -85,17 +93,17 @@ class CustomYOLODataset(Dataset):
         # resize after formatting bbox
         image = cv2.resize(image, (224, 224)) 
         if self.transform:
-            # sample = self.transform(
-            #     image=image,
-            #     bboxes=boxes
-            # )
+            sample = self.transform(
+                image=image,
+                bboxes=boxes
+            )
             # image_path = self.transform(image_path)
-            image = self.transform(image)
-            boxes = self.transform(boxes)
+            # image = self.transform(image)
+            # boxes = self.transform(boxes)
         # print("boxes", boxes.shape)
-        # image = sample['image']
-        # boxes = sample['bboxes']
-        # boxes = torch.as_tensor(boxes, dtype=torch.float32)  # (Ni,4)
+        image = sample['image']
+        boxes = sample['bboxes']
+        boxes = torch.as_tensor(boxes, dtype=torch.float32)  # (Ni,4)
         # print(boxes.shape)
         # print(image.shape, boxes.shape)
         # print(boxes.shape)
@@ -103,7 +111,8 @@ class CustomYOLODataset(Dataset):
 
 if __name__ == '__main__':
     train_ds = CustomYOLODataset(
-        "./meta-files/trainlist_e2e_new_1.txt",
+        # "./meta-files/trainlist_e2e_new_1.txt",
+        "./meta-files/MEB/DAMEBlist_train_e2e_new_1.txt",
         transform=torchvision.transforms.Compose([torchvision.transforms.ToTensor()])
     )
     train_dl = DataLoader(train_ds, batch_size=1, shuffle=True,  collate_fn=custom_collate)
