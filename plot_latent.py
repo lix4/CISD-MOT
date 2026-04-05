@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import argparse
 import numpy as np
-from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
+from umap import UMAP
 from models.MOT_IVD_v1_9 import MOT_IVD_v1_9
+# from models.MOT_IVD_v1_9_ab_audio_bbox_dis import MOT_IVD_v1_9
 import torch
 import torchvision.transforms as T
 from datasets.dataset_mot import listDataset, avivd_collate_fn
@@ -12,7 +13,7 @@ from matplotlib.lines import Line2D
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="使用 t-SNE 可视化高维 latent space"
+        description="使用 UMAP 可视化高维 latent space"
     )
     # parser.add_argument(
     #     "--latent", type=str, required=True,
@@ -23,16 +24,20 @@ def parse_args():
     #     help="路径到 labels 的 .npy 文件，形状 (N,), 值为 1,2,3"
     # )
     parser.add_argument(
-        "--perplexity", type=float, default=30.0,
-        help="t-SNE 的 perplexity 参数 (默认: 30.0)"
+        "--n_neighbors", type=int, default=10,
+        help="UMAP 的 n_neighbors 参数 (默认: 10)"
     )
     parser.add_argument(
-        "--n_iter", type=int, default=1000,
-        help="t-SNE 的最大迭代次数 (默认: 1000)"
+        "--min_dist", type=float, default=0.0,
+        help="UMAP 的 min_dist 参数 (默认: 0.0)"
     )
     parser.add_argument(
-        "--learning_rate", type=float, default=200.0,
-        help="t-SNE 的学习率 (默认: 200.0)"
+        "--spread", type=float, default=0.7,
+        help="UMAP 的 spread 参数 (默认: 0.7)"
+    )
+    parser.add_argument(
+        "--metric", type=str, default="cosine",
+        help="UMAP 的距离度量 (默认: cosine)"
     )
     return parser.parse_args()
 
@@ -42,6 +47,7 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = MOT_IVD_v1_9(num_classes=3).cuda()
     model.load_state_dict(torch.load("./runs/MOT_classification_cl_v1_9_yolo11s_af/best_model_epoch_12_mAP_0.9099.pth")["model_state_dict"])
+    # model.load_state_dict(torch.load("./runs/MOT_classification_cl_v1_9_yolo11s_ab_audio_bbox_dis/best_model_epoch_3_mAP_0.8388.pth")["model_state_dict"])
     model.to(device)
     model.eval()
     kwargs = {'num_workers': 8, 'pin_memory': True, 'prefetch_factor': 2}
@@ -51,8 +57,10 @@ def main():
     # labels = np.load(args.labels)      # shape: (N,), values in {1,2,3}
     test_dataset = listDataset(
             base_path='/uu/sci.utah.edu/projects/smartair/Dataset',
-            txt_list='./meta-files/testlist_e2e_new_2.txt',
-            json_path='./datasets/test_tracks_yolov11s_2_corrected_padded.json',
+            # txt_list='./meta-files/testlist_e2e_new_2.txt',
+            # json_path='./datasets/test_tracks_yolov11s_2_corrected_padded.json',
+            txt_list = './meta-files/validlist_e2e_new_1.txt',
+            json_path='./datasets/valid_tracks_yolov11s_af_corrected_padded.json',
             load_frames=False,
             transform=T.ToTensor()
     )
@@ -81,7 +89,7 @@ def main():
             audio = audio.to(device)
             labels = labels.to(device)[:,-1:]
             # print(bboxes.shape, audio.shape)
-            logits, joint_emb_n = model(bboxes, audio)  # [BN, L, C]
+            _, joint_emb_n = model(bboxes, audio)  # [BN, L, C]
             all_latent = np.concatenate((all_latent, joint_emb_n.detach().cpu().numpy()), axis=0)
             all_labels = np.concatenate((all_labels, labels.cpu().numpy()), axis=0)
             all_masks = np.concatenate((all_masks, mask.cpu().numpy()), axis=0)
@@ -91,16 +99,16 @@ def main():
     all_latent = all_latent[all_masks[:, 0], :]
     all_labels = all_labels[all_masks[:, 0], :]
     print(np.unique(all_labels))
-    # 运行 t-SNE
-    tsne = TSNE(
+    # 运行 UMAP
+    reducer = UMAP(
         n_components=2,
-        perplexity=args.perplexity,
-        learning_rate=args.learning_rate,
-        n_iter=args.n_iter,
-        init="random",
+        n_neighbors=args.n_neighbors,
+        min_dist=args.min_dist,
+        spread=args.spread,
+        metric=args.metric,
         random_state=42
     )
-    latent_2d = tsne.fit_transform(all_latent)
+    latent_2d = reducer.fit_transform(all_latent)
 
     cmap = plt.get_cmap("tab10")
     # 用边界归一化，确保 1/2/3 各自映射到一个固定颜色
@@ -116,9 +124,12 @@ def main():
         cmap=cmap,
         norm=norm
     )
-    plt.title("t-SNE Visualization of Latent Space")
+    # plt.title("UMAP Visualization w/o JACE")
+    plt.title("UMAP Visualization with JACE")
     plt.xlabel("Component 1")
     plt.ylabel("Component 2")
+    plt.xticks([])
+    plt.yticks([])
 
     # 添加图例
     # handles, _ = scatter.legend_elements(num=3)
@@ -136,7 +147,8 @@ def main():
     plt.legend(handles=legend_handles, title="Classes")
 
     plt.tight_layout()
-    plt.savefig("tsne.png")
+    # plt.savefig("umap_sl.png")
+    plt.savefig("umap_valid.png")
 
 if __name__ == "__main__":
     main()

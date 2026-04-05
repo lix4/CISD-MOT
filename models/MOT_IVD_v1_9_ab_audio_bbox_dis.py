@@ -235,7 +235,7 @@ class MOT_IVD_v1_9(nn.Module):
         clip_feat = fused.mean(dim=1)  # [BN,d]
         logits = self.cls(clip_feat)   # [BN,C]
 
-        return logits, None
+        return logits, clip_feat
 
 
     

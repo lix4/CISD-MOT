@@ -126,8 +126,8 @@ def build_dataloaders(batch_size=8):
     )
     val_ds = CustomYOLODataset(
         # "./meta-files/MEB/DAMEBlist_test_e2e_new_1.txt",
-        # "./meta-files/validlist_e2e_new_1.txt",
-        "./meta-files/testlist_e2e_new_2.txt",
+        "./meta-files/validlist_e2e_new_1.txt",
+        # "./meta-files/testlist_e2e_new_2.txt",
         transform = get_val_transforms_224()
         # transform=torchvision.transforms.ToTensor()
     )

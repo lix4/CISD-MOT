@@ -21,6 +21,7 @@ from torchmetrics.detection.mean_ap import MeanAveragePrecision
 import argparse
 from utils import *
 import matplotlib.pyplot as plt
+import json
 
 # def avivd_collate_fn(batch):
 #     bboxes_list = []
@@ -91,7 +92,7 @@ def validate_one_epoch(model, dataloader, loss_n, device, num_classes=3, data_lo
             mask = mask.to(device)[:,-1:]
             audio = audio.to(device)
             ###########
-            audio = audio[:, [0, 2, 5], :, :]
+            # audio = audio[:, [0, 2, 5], :, :]
             ###########
 
             labels = labels.to(device)[:,-1:]
@@ -121,7 +122,7 @@ def validate_one_epoch(model, dataloader, loss_n, device, num_classes=3, data_lo
             # print("yolo_confs")
 
             # final_scores = 0.4 * pct_conf + 0.6 * pct_prob
-            final_scores = yolo_confs * cls_scores.cpu()
+            final_scores = cls_scores.cpu()
             # final_scores = (yolo_confs * cls_scores.cpu()) / 2          # 若模型也有 objectness
             ground_truths = load_ground_truths(video_ids, data_location)
             # print(bboxes.shape, preds.shape, labels.shape)
@@ -137,6 +138,28 @@ def validate_one_epoch(model, dataloader, loss_n, device, num_classes=3, data_lo
             all_masks.append(mask.cpu())
 
     print(count_invalid)
+
+    dump_payload = {
+        "predictions": [
+            {
+                k: (v.detach().cpu().tolist() if isinstance(v, torch.Tensor) else v)
+                for k, v in pred.items()
+            }
+            for pred in all_predictions
+        ],
+        "groundtruth": [
+            {
+                k: (v.detach().cpu().tolist() if isinstance(v, torch.Tensor) else v)
+                for k, v in gt.items()
+            }
+            for gt in all_groundtruth
+        ],
+    }
+
+    with open("eval_dump_03_05.json", "w") as f:
+        json.dump(dump_payload, f)
+
+
     ###################### TANet CLS ######################
     preds = torch.cat(all_preds, dim=0).view(-1)
     targets = torch.cat(all_targets, dim=0).view(-1)
@@ -160,42 +183,42 @@ def validate_one_epoch(model, dataloader, loss_n, device, num_classes=3, data_lo
     ###################### overall detection ######################
     # 1) 拼接到全局向量
     # img_ids   = []
-    boxes_all = []; labels_all = []; conf_all = []; prob_all = []
-    offsets = []
-    start = 0
+    # boxes_all = []; labels_all = []; conf_all = []; prob_all = []
+    # offsets = []
+    # start = 0
 
-    for p in all_predictions:
-        n = p['boxes'].shape[0]
-        if n == 0:
-            continue
-        # img_ids.append(torch.full((p['boxes'].shape[0],), p['image_id'], dtype=torch.long))
-        boxes_all.append(p['boxes'])
-        labels_all.append(p['labels'])
-        conf_all.append(p['yolo_confs'])
-        prob_all.append(p['cls_scores'])
-        offsets.append((p, start, start + n))
-        start += n
+    # for p in all_predictions:
+    #     n = p['boxes'].shape[0]
+    #     if n == 0:
+    #         continue
+    #     # img_ids.append(torch.full((p['boxes'].shape[0],), p['image_id'], dtype=torch.long))
+    #     boxes_all.append(p['boxes'])
+    #     labels_all.append(p['labels'])
+    #     conf_all.append(p['yolo_confs'])
+    #     prob_all.append(p['cls_scores'])
+    #     offsets.append((p, start, start + n))
+    #     start += n
 
-    # img_ids = torch.cat(img_ids)
-    boxes   = torch.cat(boxes_all)
-    labels  = torch.cat(labels_all)
-    conf    = torch.cat(conf_all)    # ∈[0.3,1]（你之前conf_thres>=0.3）
-    prob    = torch.cat(prob_all)    # ∈[0,1]
+    # # img_ids = torch.cat(img_ids)
+    # boxes   = torch.cat(boxes_all)
+    # labels  = torch.cat(labels_all)
+    # conf    = torch.cat(conf_all)    # ∈[0.3,1]（你之前conf_thres>=0.3）
+    # prob    = torch.cat(prob_all)    # ∈[0,1]
 
-    # 2.1 词典式排序分数（先按prob，prob相近时再看conf）——强制重排
-    N = prob.numel()
-    rank_prob = prob.argsort().argsort().float()
-    rank_conf = conf.argsort().argsort().float()
-    new_score = rank_prob * (N + 1) + rank_conf
-    new_score = (new_score - new_score.min()) / (new_score.max() - new_score.min() + 1e-12)
+    # # 2.1 词典式排序分数（先按prob，prob相近时再看conf）——强制重排
+    # N = prob.numel()
+    # rank_prob = prob.argsort().argsort().float()
+    # rank_conf = conf.argsort().argsort().float()
+    # new_score = rank_prob * (N + 1) + rank_conf
+    # new_score = (new_score - new_score.min()) / (new_score.max() - new_score.min() + 1e-12)
 
     # （或）2.2 线性缩放后乘（温和重排）
     # conf2 = (conf - 0.30) / 0.70
     # new_score = conf2 * prob
 
     # 3) 按 offsets 把 new_score 写回各自的字典
-    for p, s, e in offsets:
-        p['scores'] = new_score[s:e]
+    # for p, s, e in offsets:
+    #     p['scores'] = new_score[s:e]
 
     print("########### det/cls mAP ###########")
     det_cls_metric.update(all_predictions, all_groundtruth)
@@ -215,7 +238,7 @@ def validate_one_epoch(model, dataloader, loss_n, device, num_classes=3, data_lo
     det_cls_metric.reset()
     print("########### det/cls mAP ###########")
     ###################### overall detection ######################
-
+    exit(0)
     return f1, mAP
 
 def train_one_step(model, batch, loss_n, optimizer, device):
@@ -237,7 +260,7 @@ def train_one_step(model, batch, loss_n, optimizer, device):
     mask = mask.to(device)
     audio = audio.to(device)
     ###########
-    audio = audio[:, [0, 2, 5], :, :]
+    # audio = audio[:, [0, 2, 5], :, :]
     ###########
     labels = labels.to(device)
     # print(labels)
@@ -349,6 +372,7 @@ if __name__ == "__main__":
         txt_list='./meta-files/validlist_e2e_new_1.txt',
         # txt_list='./meta-files/MEB/test_split_1/DAMEBlist_test_e2e_new_1_copy.txt',
         json_path='./datasets/valid_tracks_yolov11s_af_03_05_corrected_padded.json',
+        # json_path='./datasets/valid_tracks_yolov11s_af_corrected_padded.json',
         # json_path='./datasets/valid_tracks_yolov11s_corrected_padded.json',
         # json_path='./datasets/valid_tracks.json',
         # json_path='./datasets/new_test.json',
@@ -385,12 +409,13 @@ if __name__ == "__main__":
     if args.val_only:
         f1, mAP = validate_one_epoch(model, valid_loader, sup_con_l, device, data_location = 'LDS')
         print(f"[Validate-Only] F1: {f1:.4f} | mAP: {mAP:.4f}")
+
         print("##################################################")
         test_dataset = listDataset(
             base_path='/uu/sci.utah.edu/projects/smartair/Dataset',
             txt_list='./meta-files/testlist_e2e_new_2.txt',
-            # json_path='./datasets/test_tracks_yolov11s_2_corrected_padded.json',
-            json_path='./datasets/test_tracks_2_corrected_padded.json',
+            json_path='./datasets/test_tracks_yolov11s_2_corrected_padded.json',
+            # json_path='./datasets/test_tracks_2_corrected_padded.json',
             load_frames=False,
             transform=T.ToTensor()
         )
